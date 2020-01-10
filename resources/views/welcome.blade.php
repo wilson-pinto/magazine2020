@@ -46,7 +46,6 @@
 
             .title {
                 font-size: 84px;
-                font-weight: 700;
                 text-transform: uppercase;
             }
 
@@ -74,9 +73,9 @@
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
-                        @if (Route::has('register'))
+                        <!-- @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
-                        @endif
+                        @endif -->
                     @endauth
                 </div>
             @endif
@@ -87,14 +86,12 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="#">Articles</a>                    
+                    <a href="#">Drawings</a>                    
+                    <a href="#">Photographs</a>                    
+                    <a href="#">Gallery</a>                    
+                    <a href="#">Videos</a>                    
+                    <a href="#">Reports</a>                    
                 </div>
             </div>
         </div>

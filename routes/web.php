@@ -18,3 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+Route::group(['namespace' => 'backend', 'prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], function () {
+
+    Route::resource('category', 'CategoryController');
+    Route::get('categories-showAll', 'CategoryController@showAll');
+});
