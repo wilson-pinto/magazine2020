@@ -34,6 +34,10 @@
   font-family: Montserrat-SemiBold !important;
 }
 
+.text-primary {
+  color: #ffb236 !important;
+}
+
 .font-l {
   font-size: 30px !important;
 }
@@ -71,8 +75,8 @@
 
 .sidebar-container {
   background: #ffb236;
-  -webkit-box-shadow: 0 1px 15px 1px rgba(39, 39, 39, 0.1);
-          box-shadow: 0 1px 15px 1px rgba(39, 39, 39, 0.1);
+  -webkit-box-shadow: 4px 9px 30px -7px rgba(0, 0, 0, 0.75);
+          box-shadow: 4px 9px 30px -7px rgba(0, 0, 0, 0.75);
   min-height: 100vh;
   padding: 0;
   -webkit-transition: all 0.9s;
@@ -144,9 +148,21 @@
 }
 
 .content-body {
-  border-top: 4px solid #ffb236;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+  border-radius: 10px;
+  margin-top: -10vh;
+}
+
+.footer {
+  margin-top: 60vh;
+  height: 10vh;
+}
+
+.btn-primary {
+  border-radius: 50%;
+  padding: 13px 16px;
+  background: #ffb236 !important;
+  color: #fff !important;
+  font-size: 25px;
 }
 
 .form-control:focus {

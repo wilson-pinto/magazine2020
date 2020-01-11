@@ -2,18 +2,18 @@
 @section('content')
 
 <div class="col-md-12 mt-2">
-    <div class="row px-3 py-2">
-        <h4 class="font-primary-medium text-uppercase">Author</h4>
-    </div>
     <div class="content-body bg-white shadow">
-        <div class="p-3 row justify-content-end">
-            <a href="{{ URL::to('/admin/author/create') }}"
-                class="mr-3 btn btn-success font-primary-semiBold text-uppercase" data-toggle="tooltip"
+        <div class="p-3 row align-items-center">
+            <div class="col-3 ml-3">
+             <h4 class="font-primary-regular text-primary text-uppercase">Author</h4>
+            </div>
+           <div class="col">
+                <a href="{{ URL::to('/admin/author/create') }}"
+                class="mr-3 btn-primary float-right shadow" data-toggle="tooltip"
                 title="Create Author">
                 <i class="fa fa-plus" aria-hidden="true"></i>
-                Add
             </a>
-
+           </div>
         </div>
         <div class="p-3 row">
             <div id="table-list" class="col">
