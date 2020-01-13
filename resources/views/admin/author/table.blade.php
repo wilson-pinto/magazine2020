@@ -5,9 +5,20 @@
     <thead>
         <tr>
             <th>
+                Profile
+            </th>
+            <th>
                 Name
             </th>
-            <th>Date / Time</th>
+            <th>
+                Branch/Year
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Status
+            </th>
             <th>
                 Actions
             </th>
@@ -17,13 +28,24 @@
         @foreach($authors as $author)
         <tr>
             <td>
-                {{$author->author_name}}
+                <img src="{{isset($author) ? '/img/author/'. $author->profile_img : '/img/no-img.png'}}"
+                    class="profile-img" height="50px" width="50px">
             </td>
             <td>
-                {{date('d M Y / H:i', strtotime($author->created_at))}}
+                {{$author->name}}
             </td>
             <td>
-                <a class="btn btn-success px-2" data-toggle="tooltip" title="Edit"
+                {{$author->branch}}/{{$author->year}}
+            </td>
+            <td>
+                {{ $author->type==1? 'Student' : '' }} {{ $author->type==2? 'Lecturer' : '' }}
+                {{ $author->type==3? 'Old Student' : '' }}
+            </td>
+            <td>
+                {{ $author->status==1? 'Active' : 'Inactive' }}
+            </td>
+            <td>
+                <a class="btn btn-warning px-2 text-white" data-toggle="tooltip" title="Edit"
                     href="/admin/author/{{$author->author_rid}}/edit">
                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                 </a>

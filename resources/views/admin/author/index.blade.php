@@ -5,15 +5,14 @@
     <div class="content-body bg-white shadow">
         <div class="p-3 row align-items-center">
             <div class="col-3 ml-3">
-             <h4 class="font-primary-regular text-primary text-uppercase">Author</h4>
+                <h4 class="font-primary-regular text-primary text-uppercase">Author</h4>
             </div>
-           <div class="col">
-                <a href="{{ URL::to('/admin/author/create') }}"
-                class="mr-3 btn-primary float-right shadow" data-toggle="tooltip"
-                title="Create Author">
-                <i class="fa fa-plus" aria-hidden="true"></i>
-            </a>
-           </div>
+            <div class="col">
+                <a href="{{ URL::to('/admin/author/create') }}" class="mr-3 btn-primary float-right shadow"
+                    data-toggle="tooltip" title="Create Author">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                </a>
+            </div>
         </div>
         <div class="p-3 row">
             <div id="table-list" class="col">
@@ -28,7 +27,7 @@
     $(document).ready(function () {
         $.ajax({
             type: "GET",
-            url: "/admin/author-showAll",
+            url: "/admin/authors-showAll",
             success: function (data) {
                 console.log(data);
                 $("#table-list").html(data);

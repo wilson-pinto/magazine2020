@@ -15,7 +15,7 @@
                 <div class="row header align-content-start justify-content-between py-4">
                     @include('admin.includes.header')
                 </div>
-                <div class="row">
+                <div class="row text-dark">
                     @yield('content')
                 </div>
                 <div class="row">

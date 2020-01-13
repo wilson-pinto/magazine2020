@@ -1,6 +1,6 @@
 <div id="sidebar-container" class="sidebar-expanded d-block  sidebar-container">
 <div class="brand">
-    <h4>Abhivyakta 2020</h4>
+    <h4 class="text-uppercase">Abhivyakta</h4>
 </div>
     <ul class="list-group">
         <a href="{{ URL::to('/home') }}" class="list-group-item list-group-item-action mt-3">

@@ -1,6 +1,6 @@
 $colorPrimary: #ffb236;
 $colorSecondary: #d2d6de;
-$colorDark: #132644;
+$colorDark: #0c2646;
 $colorLight: #dde1e8;
 
 @font-face {
@@ -41,6 +41,10 @@ $colorLight: #dde1e8;
 
 .text-primary {
   color: $colorPrimary !important;
+}
+
+.text-dark {
+  color: $colorDark !important;
 }
 .font-l {
   font-size: 30px !important;
@@ -200,4 +204,20 @@ $colorLight: #dde1e8;
       }
     }
   }
+}
+
+.profile-img {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  object-position: center;
+}
+
+td {
+  vertical-align: middle !important;
+}
+
+.auth-bg {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url(bg-login.jpg);
 }

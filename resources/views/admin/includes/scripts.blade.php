@@ -8,17 +8,17 @@
             });
         
         function SidebarCollapse () {
-            // $('.menu-collapsed').toggleClass('d-none');
-            // $('.brand').toggleClass('brand-collapsed');
-            // $('#sidebar-container').toggleClass('sidebar-expanded sidebar-collapsed');
-            $('#sidebar-container').toggleClass('d-none d-block');
+            $('.menu-collapsed').toggleClass('d-none');
+            $('.brand').toggleClass('brand-collapsed');
+            $('#sidebar-container').toggleClass('sidebar-expanded sidebar-collapsed');
+            // $('#sidebar-container').toggleClass('d-none d-block');
             
-            // var SeparatorTitle = $('.sidebar-separator-title');
-            // if ( SeparatorTitle.hasClass('d-flex') ) {
-            //     SeparatorTitle.removeClass('d-flex');
-            // } else {
-            //     SeparatorTitle.addClass('d-flex');
-            // }
+            var SeparatorTitle = $('.sidebar-separator-title');
+            if ( SeparatorTitle.hasClass('d-flex') ) {
+                SeparatorTitle.removeClass('d-flex');
+            } else {
+                SeparatorTitle.addClass('d-flex');
+            }
             
         }
 </script>

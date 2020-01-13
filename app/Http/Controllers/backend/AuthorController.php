@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Author;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
@@ -39,7 +40,7 @@ class AuthorController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'colFBH' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:6000',
+            'authorImage' => 'image|mimes:jpeg,png,jpg,gif,svg|max:500',
         ]);
         if ($validator->fails()) {
             Session::flash('error', $validator->messages()->first());
@@ -48,21 +49,24 @@ class AuthorController extends Controller
         }
 
         try {
-            $imageFBH = $request->colFBH->getClientOriginalName() . '_' . time() . '.' . request()->colFBH->getClientOriginalExtension();
-            request()->colFBH->move(public_path('images'), $imageFBH);
+            $authorImage =  time() . '_' .  $request->authorImage->getClientOriginalName();
+            request()->authorImage->move(public_path('img/author/'), $authorImage);
         } catch (Exception $e) {
             // echo 'Message: ' . $e->getMessage();
             return redirect()->back()->withErrors($e->getMessage())->withInput();
         }
-        $Col = new Collection();
-        $Col->col_name = $request->input('colName');
 
-        $Col->display_order = $request->input('colDO');
-        $Col->status = $request->input('colStatus') ? 1 : 0;
-        $Col->banner_horizontal = $imageFBH;
-        $Col->save();
+        $author = new Author();
+        $author->name = $request->input('authorName');
+        $author->profile_img = $authorImage;
+        $author->branch = $request->input('branch');
+        $author->year = $request->input('year');
+        $author->type = $request->input('type');
+        $author->status = $request->input('status') ? 1 : 0;
+
+        $author->save();
         // redirect
-        Session::flash('message', 'Successfully created Collection!');
+        Session::flash('message', 'Form submitted successfully!');
         return Redirect::to('/admin/author');
     }
 
@@ -74,7 +78,6 @@ class AuthorController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
@@ -85,7 +88,8 @@ class AuthorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $author = Author::find($id);
+        return view('admin.author.create', compact('author'));
     }
 
     /**
@@ -97,24 +101,23 @@ class AuthorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $Col = Collection::find($id);
-        if ($request->hasFile('colFBH')) {
-            $imageFBH = request()->colFBH->getClientOriginalName() . '_' . time() . '.' . request()->colFBH->getClientOriginalExtension();
-            $request->colFBH->move(public_path('images/collections'), $imageFBH);
-            $Col->banner_horizontal = $imageFBH;
+        $author = Author::find($id);
+        if ($request->hasFile('authorImage')) {
+            $authorImage =  time() . '_' .  $request->authorImage->getClientOriginalName();
+            request()->authorImage->move(public_path('img/author/'), $authorImage);
+            $author->profile_img = $authorImage;
         }
 
-        $Col->col_name = $request->input('colName');
-        $Col->col_name_sub  = $request->input('colTag');
-        $Col->col_title = $request->input('colTitle');
-        $Col->col_description = $request->input('colDesc');
-        $Col->col_second_title = $request->input('colSec');
-        $Col->display_order = $request->input('colDO');
-        $Col->status = $request->input('colStatus') ? 1 : 0;
-        $Col->save();
+        $author->name = $request->input('authorName');
+        $author->branch = $request->input('branch');
+        $author->year = $request->input('year');
+        $author->type = $request->input('type');
+        $author->status = $request->input('status') ? 1 : 0;
+
+        $author->save();
         // redirect
-        Session::flash('message', 'Successfully Saved Collection!');
-        return Redirect::to('/admin/collections');
+        Session::flash('message', 'Form submitted successfully!');
+        return Redirect::to('/admin/author');
     }
 
     /**
@@ -126,5 +129,11 @@ class AuthorController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function showAll()
+    {
+        $authors = Author::all();
+        return view('admin.author.table', compact('authors'));
     }
 }

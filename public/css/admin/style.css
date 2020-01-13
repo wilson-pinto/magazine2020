@@ -38,6 +38,10 @@
   color: #ffb236 !important;
 }
 
+.text-dark {
+  color: #0c2646 !important;
+}
+
 .font-l {
   font-size: 30px !important;
 }
@@ -204,6 +208,25 @@
 
 .infobox .infobox-right p a {
   font-size: 12px !important;
-  color: #132644 !important;
+  color: #0c2646 !important;
+}
+
+.profile-img {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+td {
+  vertical-align: middle !important;
+}
+
+.auth-bg {
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0.6))), url(bg-login.jpg);
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url(bg-login.jpg);
 }
 /*# sourceMappingURL=style.css.map */
