@@ -25,4 +25,7 @@ Route::group(['namespace' => 'backend', 'prefix' => 'admin', 'as' => 'admin.', '
 
     Route::resource('author', 'AuthorController');
     Route::get('authors-showAll', 'AuthorController@showAll');
+
+    Route::resource('article', 'ArticleController');
+    Route::get('article-showAll', 'ArticleController@showAll');
 });

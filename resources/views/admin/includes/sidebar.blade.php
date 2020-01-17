@@ -1,9 +1,10 @@
 <div id="sidebar-container" class="sidebar-expanded d-block  sidebar-container">
-<div class="brand">
-    <h4 class="text-uppercase">Abhivyakta</h4>
-</div>
+    <div class="brand">
+        <h4 class="text-uppercase">Abhivyakta</h4>
+    </div>
     <ul class="list-group">
-        <a href="{{ URL::to('/home') }}" class="list-group-item list-group-item-action mt-3">
+        <a href="{{ URL::to('/home') }}"
+            class="list-group-item list-group-item-action mt-3 {{request()->is('gifts') ? 'nav-link active' : 'nav-link' }}">
             <div class="d-flex w-100 justify-content-start align-items-center">
                 <span class="fa fa-tachometer fa-fw mr-3" data-toggle="tooltip" data-placement="right"
                     title="Authors"></span>
@@ -18,7 +19,7 @@
             </div>
         </a>
 
-        <a href="{{ URL::to('/admin/category') }}" class="list-group-item list-group-item-action">
+        <a href="{{ URL::to('/admin/article') }}" class="list-group-item list-group-item-action">
             <div class="d-flex w-100 justify-content-start align-items-center">
                 <span class="fa fa-pencil fa-fw mr-3" data-toggle="tooltip" data-placement="right"
                     title="Category"></span>
@@ -34,8 +35,7 @@
         </a>
         <a href="{{ URL::to('/admin/news') }}" class="list-group-item list-group-item-action">
             <div class="d-flex w-100 justify-content-start align-items-center">
-                <span class="fa fa-camera fa-fw mr-3" data-toggle="tooltip" data-placement="right"
-                    title="News"></span>
+                <span class="fa fa-camera fa-fw mr-3" data-toggle="tooltip" data-placement="right" title="News"></span>
                 <span class="menu-collapsed">Photographs</span>
             </div>
         </a>
