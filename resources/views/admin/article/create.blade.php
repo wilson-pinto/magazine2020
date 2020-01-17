@@ -4,107 +4,80 @@
 
 
 <div class="col-md-12 mt-2">
-    @if(isset($blog))
-    <div class="row px-3 py-2">
-        <h4 class="font-primary-medium text-uppercase">Edit Blog</h4>
-    </div>
-    <form method="post" enctype="multipart/form-data" action="{{ route('admin.blog.update',$blog->post_rid) }}">
-        {{ method_field("PUT") }}
-        @else
+    <div class="content-body bg-white shadow px-5 py-4">
+        @if(isset($author))
         <div class="row px-3 py-2">
-            <h4 class="font-primary-medium text-uppercase">Create Blog</h4>
+            <h4 class="font-primary-medium text-uppercase text-primary">Edit Article</h4>
         </div>
-        <form method="post" enctype="multipart/form-data" action="{{ route('admin.blog.store') }}">
-            @endif
-            {{ csrf_field() }}
-            <div class="content-body bg-white shadow px-5 py-4">
-                <div class="form-row">
-                    <label for="postTitle">Blog Title</label>
-                    <input id="postTitle" name="postTitle"
-                        class="form-control rounded-0 @error('catName') is-invalid @enderror"
-                        value="{{isset($blog)?$blog->title : '' }}" required autofocus placeholder="Name">
+        <form method="post" enctype="multipart/form-data"
+            action="{{ route('admin.article.update',$author->author_rid) }}">
+            {{ method_field("PUT") }}
+            @else
+            <div class="row px-3 py-2">
+                <h4 class="font-primary-medium text-uppercase text-primary">Create Article</h4>
+            </div>
+            <form method="post" enctype="multipart/form-data" action="{{ route('admin.article.store') }}">
+                @endif
+                {{ csrf_field() }}
+
+                <div class="form-group row px-3">
+                    <label for="authorName">Title</label>
+                    <input id="authorName" name="authorName"
+                        class="form-control rounded-0 @error('authorName') is-invalid @enderror"
+                        value="{{isset($author)?$author->name : '' }}" required autofocus placeholder="Name">
                     <div class="invalid-feedback"> </div>
                 </div>
-
-                <div class="form-row mt-3">
-                    <label for="catName">Blog Image</label>
-                    <div class="custom-file">
-                        <input id="postImageOld" name="postImageOld" type="hidden"
-                            value="{{isset($blog)?$blog->image_url : ''}}">
-                        <input id="postImage" name="postImage" type="file"
-                            class="custom-file-input rounded-0 @error('postImage') is-invalid @enderror"
-                            placeholder="Horizontal Image">
-                        <label class="custom-file-label rounded-0"
-                            for="customFile">{{isset($blog)?$blog->image_url : 'Choose file' }}</label>
-                        <div class="invalid-feedback"> </div>
-                    </div>
-                    <img src="{{isset($blog) ? Config::get('app.url') . '/img/blogs/'. $blog->image_url : ''}}" alt=""
-                        class="mt-4" height="50px">
+                <div class="form-group row px-3">
+                    <label for="authorName">Author</label>
+                    <select class="form-control rounded-0" id="exampleFormControlSelect1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                    <div class="invalid-feedback"> </div>
                 </div>
-
-                <div class="form-row mt-3">
-                    <label for="">Blog Body</label>
+                <div class="form-group row px-3">
+                    <label for="authorName">Category</label>
+                    <select class="form-control rounded-0" id="exampleFormControlSelect1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                    <div class="invalid-feedback"> </div>
                 </div>
-                <div class="form-row mt-2">
+                <div class="form-group row px-3">
+                    <label for="">Article Body</label>
+                </div>
+                <div class="form-group row px-3">
                     <textarea id="editor" name="editor" class="w-100">{{isset($blog)?$blog->body : '' }}</textarea>
                     <div class="invalid-feedback"> </div>
                 </div>
-
-                <div class="form-row mt-3">
-                    <label for="inputState">Category</label>
-                    <select id="category" name="category" class="form-control rounded-0">
-                        @if(!isset($blog))
-                        <option value="-1" selected>Select Category</option>
-                        @endif
-                        @foreach ($categories as $category)
-                        <option value="{{ $category->category_rid }}"
-                            {{isset($blog) ? $blog->category_rid == $category->category_rid  ? 'selected' : '' : '' }}>
-                            {{ $category->category_name }}
-                        </option>
-                        @endforeach
-                    </select>
-                    <div class="invalid-feedback"> </div>
-                </div>
-
-                <div class="form-row mt-3">
-                    <label for="inputState">Author</label>
-                    <select id="author" name="author" class="form-control rounded-0">
-                        @if(!isset($blog))
-                        <option value="-1" selected>Select Author</option>
-                        @endif
-                        @foreach ($authors as $author)
-                        <option value="{{ $author->author_rid }}"
-                            {{isset($blog) ? $blog->author_rid == $author->author_rid  ? 'selected' : '' : '' }}>
-                            {{ $author->author_name }}
-                        </option>
-                        @endforeach
-                    </select>
-                    <div class="invalid-feedback"> </div>
-                </div>
-
-                <div class="form-row mt-3 card">
-                    <div class="col-md-12">
-                        <div class="card-body form-group row">
-                            <label class="col-md-2 col-form-label" for="">Active</label>
-                            <div class="col-md-3 align-self-center">
-                                <div class="custom-control custom-switch">
-                                    <input type="checkbox"
-                                        checked="{{ isset($blog)?$blog->status==1? 'checked' : '' : 'checked' }}"
-                                        class="custom-control-input" id="postStatus" name="postStatus">
-                                    <label class="custom-control-label" for="postStatus"></label>
+                <div class="form-group row mt-4">
+                    <div class="col">
+                        <div class="card mt-3 ">
+                            <div class="card-body form-group row justify-content-between align-items-center">
+                                <label class="col-md-1 col-form-label" for="status">Status</label>
+                                <div class="col align-self-center">
+                                    <div class="custom-control custom-switch">
+                                        <input type="checkbox"
+                                            {{ isset($author)?$author->status==1? 'checked' : '' : 'checked' }}
+                                            class="custom-control-input" id="status" name="status">
+                                        <label class="custom-control-label" for="status"></label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-7">
-                                <button class="btn btn-success font-primary-semiBold text-uppercase float-right"
-                                    id="submit">
-                                    {{isset($blog)? "Edit": "Add"}}
+                                <button type="submit" id="submit"
+                                    class="mr-3 btn btn-warning font-primary-semiBold text-uppercase">
+                                    {{ isset($author)?'Edit' : 'Create'}}
                                 </button>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </form>
+            </form>
+    </div>
 </div>
 
 @endsection
@@ -133,9 +106,9 @@
             return false;
         }
 
-        if (imageSize > 1024) {
+        if (imageSize > 500) {
             $(this).addClass("is-invalid");
-            $(this).siblings('div').text("Max file size is 1MB");
+            $(this).siblings('div').text("Max file size is 500kb");
             return false;
         }
 

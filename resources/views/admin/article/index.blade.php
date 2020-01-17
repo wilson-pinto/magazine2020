@@ -8,7 +8,7 @@
                 <h4 class="font-primary-regular text-primary text-uppercase">Article</h4>
             </div>
             <div class="col">
-                <a href="{{ URL::to('/admin/author/create') }}" class="mr-3 btn-primary float-right shadow"
+                <a href="{{ URL::to('/admin/article/create') }}" class="mr-3 btn-primary float-right shadow"
                     data-toggle="tooltip" title="Create Author">
                     <i class="fa fa-plus" aria-hidden="true"></i>
                 </a>
