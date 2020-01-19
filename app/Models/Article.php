@@ -8,4 +8,9 @@ class Article extends Model
 {
     protected $table = 'article';
     protected $primaryKey = 'article_rid';
+
+    public function author()
+    {
+        return $this->belongsTo('App\Models\Author', 'author_rid');
+    }
 }

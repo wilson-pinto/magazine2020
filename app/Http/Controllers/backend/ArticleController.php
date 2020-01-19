@@ -3,7 +3,14 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Article;
+use App\Models\Author;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
+
 
 class ArticleController extends Controller
 {
@@ -24,7 +31,9 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('admin.article.create');
+        $authors = Author::where('status', 1)->get();
+        $categories = Category::where('type', 2)->get();
+        return view('admin.article.create', compact('authors', 'categories'));
     }
 
     /**
@@ -35,7 +44,17 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $article = new Article();
+        $article->title = $request->input('title');
+        $article->author_rid = $request->input('author');
+        $article->cat_rid = $request->input('category');
+        $article->body = $request->input('editor');
+        $article->status = $request->input('status') ? 1 : 0;
+
+        $article->save();
+        // redirect
+        Session::flash('message', 'Form submitted successfully!');
+        return Redirect::to('/admin/article');
     }
 
     /**
@@ -57,7 +76,10 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $article = Article::find($id);
+        $authors = Author::where('status', 1)->get();
+        $categories = Category::where('type', 2)->get();
+        return view('admin.article.create', compact('authors', 'categories', 'article'));
     }
 
     /**
@@ -69,7 +91,17 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $article = Article::find($id);
+        $article->title = $request->input('title');
+        $article->author_rid = $request->input('author');
+        $article->cat_rid = $request->input('category');
+        $article->body = $request->input('editor');
+        $article->status = $request->input('status') ? 1 : 0;
+
+        $article->save();
+        // redirect
+        Session::flash('message', 'Form submitted successfully!');
+        return Redirect::to('/admin/article');
     }
 
     /**
@@ -81,5 +113,12 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function showAll()
+    {
+        $articles = Article::with('author')->get();
+
+        return view('admin.article.table', compact('articles'));
     }
 }

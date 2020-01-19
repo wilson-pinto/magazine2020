@@ -27,13 +27,13 @@
             </div>
         </a>
 
-        <a href="{{ URL::to('/admin/blog') }}" class="list-group-item list-group-item-action">
+        <a href="{{ URL::to('/admin/drawings') }}" class="list-group-item list-group-item-action">
             <div class="d-flex w-100 justify-content-start align-items-center">
                 <span class="fa fa fa-opencart mr-3" data-toggle="tooltip" data-placement="right" title="Blog"></span>
                 <span class="menu-collapsed">Drawings</span>
             </div>
         </a>
-        <a href="{{ URL::to('/admin/news') }}" class="list-group-item list-group-item-action">
+        <a href="{{ URL::to('/admin/photographs') }}" class="list-group-item list-group-item-action">
             <div class="d-flex w-100 justify-content-start align-items-center">
                 <span class="fa fa-camera fa-fw mr-3" data-toggle="tooltip" data-placement="right" title="News"></span>
                 <span class="menu-collapsed">Photographs</span>

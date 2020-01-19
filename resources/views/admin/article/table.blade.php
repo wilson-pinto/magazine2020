@@ -1,5 +1,5 @@
-@if(count($blogs) == 0)
-<h5>No Results</h5>
+@if(count($articles) == 0)
+<h5 class="ml-4">No Results</h5>
 @else
 <table class="table table-hover">
     <thead>
@@ -22,29 +22,29 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($blogs as $blog)
+        @foreach($articles as $article)
         <tr>
             <td>
-                {{$blog->title}}
+                {{$article->title}}
             </td>
             <td class="text-capitalize">
-                {{$blog->Author->author_name}}
+                {{$article->Author->name}}
             </td>
             <td>
                 {{-- {{$blog->created_at}} --}}
-                {{date('d M Y / H:i', strtotime($blog->created_at))}}
+                {{date('d M Y / H:i', strtotime($article->created_at))}}
             </td>
             <td>
-                {{$blog->status == 0 ? 'Active': 'Inactive'}}
+                {{$article->status == 1 ? 'Active': 'Inactive'}}
             </td>
 
             <td>
-                <a class="btn btn-success px-2" data-toggle="tooltip" title="Edit"
-                    href="/admin/blog/{{$blog->post_rid}}/edit">
+                <a class="btn btn-warning px-2 text-white" data-toggle="tooltip" title="Edit"
+                    href="/admin/article/{{$article->article_rid}}/edit">
                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                 </a>
-                <button class="btn btn-success px-2" data-toggle="tooltip" title="Delete"
-                    onclick="deletePost({{$blog->post_rid}})">
+                <button class="btn btn-warning px-2 text-white" data-toggle="tooltip" title="Delete"
+                    onclick="deletePost({{$article->article_rid}})">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                 </button>
             </td>

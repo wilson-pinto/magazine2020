@@ -42,11 +42,20 @@
                     <img src="{{isset($author) ? '/img/author/'. $author->profile_img : '/img/no-img.png'}}"
                         class="mt-4" height="50px">
                 </div>
+
                 <div class="form-group row px-3">
                     <label for="branch">Branch</label>
-                    <input id="branch" name="branch"
-                        class="form-control rounded-0 @error('branch') is-invalid @enderror"
-                        value="{{isset($author)?$author->branch : '' }}" autofocus placeholder="Branch">
+                    <select class="form-control rounded-0" id="branch" name="branch">
+                        @if(!isset($author))
+                        <option value="-1">--------Select Branch---------</option>
+                        @endif
+                        @foreach ($branches as $branch)
+                        <option value="{{$branch->branch_rid}}"
+                            {{isset($author)?$author->branch_rid == $branch->branch_rid ? 'selected': '' : '' }}>
+                            {{$branch->name}}
+                        </option>
+                        @endforeach
+                    </select>
                     <div class="invalid-feedback"> </div>
                 </div>
                 <div class="form-group row px-3">

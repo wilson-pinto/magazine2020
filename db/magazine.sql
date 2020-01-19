@@ -55,13 +55,14 @@ DROP TABLE IF EXISTS `author`;
 CREATE TABLE `author` (
   `author_rid` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
-  `branch` varchar(45) DEFAULT NULL,
+  `profile_img` varchar(45) DEFAULT NULL,
+  `branch_rid` int(11) DEFAULT NULL,
   `type` int(11) DEFAULT NULL,
   `year` varchar(10) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  `status` datetime DEFAULT NULL,
   PRIMARY KEY (`author_rid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -73,6 +74,30 @@ CREATE TABLE `author` (
 LOCK TABLES `author` WRITE;
 /*!40000 ALTER TABLE `author` DISABLE KEYS */;
 /*!40000 ALTER TABLE `author` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `branch`
+--
+
+DROP TABLE IF EXISTS `branch`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `branch` (
+  `branch_rid` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`branch_rid`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `branch`
+--
+
+LOCK TABLES `branch` WRITE;
+/*!40000 ALTER TABLE `branch` DISABLE KEYS */;
+INSERT INTO `branch` VALUES (1,'cs'),(2,'ec');
+/*!40000 ALTER TABLE `branch` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -88,7 +113,7 @@ CREATE TABLE `category` (
   `type` int(11) DEFAULT NULL,
   `status` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`cat_rid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,7 +122,33 @@ CREATE TABLE `category` (
 
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
+INSERT INTO `category` VALUES (1,'Drawings',1,NULL),(2,'Photographs',1,NULL),(3,'Story',2,NULL);
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `data_dictionary`
+--
+
+DROP TABLE IF EXISTS `data_dictionary`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `data_dictionary` (
+  `dd_index` int(11) NOT NULL AUTO_INCREMENT,
+  `dd_value` varchar(45) DEFAULT NULL,
+  `dd_type` int(11) DEFAULT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`dd_index`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `data_dictionary`
+--
+
+LOCK TABLES `data_dictionary` WRITE;
+/*!40000 ALTER TABLE `data_dictionary` DISABLE KEYS */;
+/*!40000 ALTER TABLE `data_dictionary` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -188,7 +239,7 @@ CREATE TABLE `post` (
   `post_rid` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(45) DEFAULT NULL,
   `img_url` varchar(45) DEFAULT NULL,
-  `category_rid` int(11) DEFAULT NULL,
+  `cat_rid` int(11) DEFAULT NULL,
   `author_rid` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
@@ -234,7 +285,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Wilson Pinto','wilson@willsstudio.com',NULL,'$2y$10$IYp5vz7bp5eKk2s/Y8RoF.sP38/5EqprV2gmgR6iNJ4w6IclLrC3K',NULL,'2020-01-09 02:25:13','2020-01-09 02:25:13');
+INSERT INTO `users` VALUES (1,'Wilson Pinto','wilson@willsstudio.in',NULL,'$2y$10$IYp5vz7bp5eKk2s/Y8RoF.sP38/5EqprV2gmgR6iNJ4w6IclLrC3K','x9u5VsaLWNcBrcBIyui4nryIaotkuoN8mxA9ldIuhm5Pmlj7uBtOnlxuWOaA','2020-01-09 02:25:13','2020-01-09 02:25:13');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -247,4 +298,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-12  1:27:36
+-- Dump completed on 2020-01-19  2:52:14

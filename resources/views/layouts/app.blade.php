@@ -18,14 +18,14 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
         <!-- Styles -->
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/auth.css') }}" rel="stylesheet">
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     </head>
 
     <body>
         <div id="app">
-            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm d-none">
                 <div class="container">
                     {{-- <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -79,7 +79,7 @@
                 </div>
             </nav>
 
-            <main class="py-4">
+            <main class="">
                 @yield('content')
             </main>
         </div>

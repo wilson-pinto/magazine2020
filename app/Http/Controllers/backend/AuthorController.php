@@ -4,6 +4,8 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Author;
+use App\Models\Branch;
+use App\Models\DataDictionary;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
@@ -28,7 +30,8 @@ class AuthorController extends Controller
      */
     public function create()
     {
-        return view('admin.author.create');
+        $branches = Branch::all();
+        return view('admin.author.create', compact('branches'));
     }
 
     /**
@@ -59,7 +62,7 @@ class AuthorController extends Controller
         $author = new Author();
         $author->name = $request->input('authorName');
         $author->profile_img = $authorImage;
-        $author->branch = $request->input('branch');
+        $author->branch_rid = $request->input('branch');
         $author->year = $request->input('year');
         $author->type = $request->input('type');
         $author->status = $request->input('status') ? 1 : 0;
@@ -89,7 +92,8 @@ class AuthorController extends Controller
     public function edit($id)
     {
         $author = Author::find($id);
-        return view('admin.author.create', compact('author'));
+        $branches = Branch::all();
+        return view('admin.author.create', compact('author', 'branches'));
     }
 
     /**
@@ -109,7 +113,7 @@ class AuthorController extends Controller
         }
 
         $author->name = $request->input('authorName');
-        $author->branch = $request->input('branch');
+        $author->branch_rid = $request->input('branch');
         $author->year = $request->input('year');
         $author->type = $request->input('type');
         $author->status = $request->input('status') ? 1 : 0;
@@ -133,7 +137,8 @@ class AuthorController extends Controller
 
     public function showAll()
     {
-        $authors = Author::all();
+        $authors = Author::with('branch')->get();
+
         return view('admin.author.table', compact('authors'));
     }
 }

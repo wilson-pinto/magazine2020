@@ -28,4 +28,10 @@ Route::group(['namespace' => 'backend', 'prefix' => 'admin', 'as' => 'admin.', '
 
     Route::resource('article', 'ArticleController');
     Route::get('article-showAll', 'ArticleController@showAll');
+
+    Route::resource('drawings', 'DrawingController');
+    Route::get('drawings-showAll', 'DrawingController@showAll');
+
+    Route::resource('photographs', 'PhotographController');
+    Route::get('photographs-showAll', 'PhotographController@showAll');
 });

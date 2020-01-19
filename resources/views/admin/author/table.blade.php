@@ -1,5 +1,5 @@
 @if(count($authors) == 0)
-<h5>No Results</h5>
+<h5 class="ml-4">No Results</h5>
 @else
 <table class="table table-hover">
     <thead>
@@ -35,7 +35,7 @@
                 {{$author->name}}
             </td>
             <td>
-                {{$author->branch}}/{{$author->year}}
+                {{$author->branch->name}}/{{$author->year}}
             </td>
             <td>
                 {{ $author->type==1? 'Student' : '' }} {{ $author->type==2? 'Lecturer' : '' }}

@@ -13,4 +13,14 @@ class Author extends Model
     {
         return $this->hasMany('App\Models\Article', 'article_rid');
     }
+
+    public function post()
+    {
+        return $this->hasMany('App\Models\Post', 'post_rid');
+    }
+
+    public function branch()
+    {
+        return $this->belongsTo('App\Models\Branch', 'branch_rid');
+    }
 }
