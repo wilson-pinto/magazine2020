@@ -1,0 +1,21 @@
+@font-face {
+  font-family: valentine;
+  src: url(/fonts/valentine.ttf);
+}
+
+.font-valentine {
+  font-family: "valentine";
+}
+
+.g-dark {
+  background: linear-gradient(90deg, #0c2646 0, #204065 60%, #2a5788) !important;
+}
+
+.main-banner {
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(/img/wills.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 80vh;
+  width: 100%;
+}
