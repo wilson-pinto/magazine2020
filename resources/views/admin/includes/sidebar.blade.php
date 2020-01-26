@@ -1,6 +1,8 @@
 <div id="sidebar-container" class="sidebar-expanded d-block  sidebar-container">
     <div class="brand">
-        <h4 class="text-uppercase">Abhivyakta</h4>
+        <a href="/" class="text-white">
+            <h4 class="text-uppercase">Abhivyakta</h4>
+        </a>
     </div>
     <ul class="list-group">
         <a href="{{ URL::to('/home') }}"

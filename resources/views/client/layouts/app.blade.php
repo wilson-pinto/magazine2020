@@ -6,14 +6,16 @@
     </head>
 
     <body>
-        <div class="container-fluid">
-            <div class="row">
-                @include('client.includes.header')
-            </div>
-            <div class="row text-dark">
+        <div class="row mx-0">
+            @include('client.includes.header')
+        </div>
+        <div class="row text-dark mx-0">
+            <div class="col px-0">
                 @yield('content')
             </div>
-            <div class="row">
+        </div>
+        <div class="row mx-0">
+            <div class="col px-0">
                 @include('client.includes.footer')
             </div>
         </div>
