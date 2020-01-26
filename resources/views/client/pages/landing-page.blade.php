@@ -18,7 +18,7 @@
                         <img src="img/svg/tools.svg" class="" alt="">
                     </div>
                     <div class="col-md-5 d-flex flex-column justify-content-center">
-                        <h1 class="pb-1">Drawings</h1>
+                        <h1 class="pb-1 text-uppercase">Drawings</h1>
                         <p class="pt-3">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe autem, eos porro ipsum
                             voluptatem velit commodi expedita, dolor quas iure obcaecati nobis amet non iusto totam
@@ -29,34 +29,18 @@
                 </div>
             </div>
             <div class="carousel-item caro-home">
-                <div class="row justify-content-center h-100">
+                <div class="row justify-content-center banners h-100">
                     <div class="col-md-3 d-flex justify-content-center align-items-center">
-                        <img src="img/svg/tools.svg" class="" alt="">
+                        <img src="img/svg/photography.svg" class="" alt="">
                     </div>
                     <div class="col-md-5 d-flex flex-column justify-content-center">
-                        <h1 class="pb-4">Drawings</h1>
-                        <p>
+                        <h1 class="pb-1 text-uppercase">Photographs</h1>
+                        <p class="pt-3">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe autem, eos porro ipsum
                             voluptatem velit commodi expedita, dolor quas iure obcaecati nobis amet non iusto totam
                             esse recusandae. Reiciendis, doloremque.
                         </p>
-                        <button class="btn btn-primary">Read More</button>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item caro-home">
-                <div class="row justify-content-center h-100">
-                    <div class="col-md-3 d-flex justify-content-center align-items-center">
-                        <img src="img/svg/tools.svg" class="" alt="">
-                    </div>
-                    <div class="col-md-5 d-flex flex-column justify-content-center">
-                        <h1>Drawings</h1>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe autem, eos porro ipsum
-                            voluptatem velit commodi expedita, dolor quas iure obcaecati nobis amet non iusto totam
-                            esse recusandae. Reiciendis, doloremque.
-                        </p>
-                        <button class="btn btn-primary">Read More</button>
+                        <button class="wp-btn-primary">Read More</button>
                     </div>
                 </div>
             </div>
