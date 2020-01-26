@@ -25,7 +25,7 @@
                             <img src="https://www.w3schools.com/w3images/rocks.jpg" style="width:100%">
                             <h5 class="mb-0 pb-0 pt-1">Wilson Pinto</h5>
                             <p class="pt-0 mt-0">Computer Science & Engg</p>
-                            <img src="/img/college-bg.jpg" alt="" class="profile position-absolute">
+                            <img src="/img/no-img.png" alt="" class="profile position-absolute">
                         </div>
                         <div class="grid-img-wrapper position-relative">
                             <img src="https://www.w3schools.com/w3images/paris.jpg" style="width:100%">
@@ -76,7 +76,21 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3"></div>
+            <div class="col-md-3">
+                <h3 class="mb-4 text-uppercase head-border pb-2">Categories</h3>
+                <p class="mb-0 mt-1 pb-2 font-alata ml-2">Lorem, ipsum. (5)</p>
+                <p class="mb-0 mt-1 pb-2 font-alata ml-2">Lorem, ipsum. (5)</p>
+                <p class="mb-0 mt-1 pb-2 font-alata ml-2">Lorem, ipsum. (5)</p>
+                <p class="mb-0 mt-1 pb-2 font-alata ml-2">Lorem, ipsum. (5)</p>
+                <hr class="border-btm mt-5">
+
+                <h3 class="mb-3 mt-5 text-uppercase head-border pb-2">Review</h3>
+                <p class="col--md-10 ml-2">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse obcaecati nisi cumque inventore.
+                </p>
+                <a href="/review" class="wp-btn-primary color-secondary text-decoration-none ml-2">Review</a>
+                <hr class="border-btm mt-5">
+            </div>
         </div>
     </div>
 </div>

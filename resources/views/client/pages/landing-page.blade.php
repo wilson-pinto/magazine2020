@@ -24,7 +24,7 @@
                             voluptatem velit commodi expedita, dolor quas iure obcaecati nobis amet non iusto totam
                             esse recusandae. Reiciendis, doloremque.
                         </p>
-                        <button class="wp-btn-primary">Read More</button>
+                        <a href="/posts" class="wp-btn-primary color-secondary text-decoration-none">Read More</a>
                     </div>
                 </div>
             </div>
