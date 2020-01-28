@@ -25,6 +25,15 @@ Route::get('posts', function () {
     return view('client.pages.posts');
 });
 
+Route::get('article-list', function () {
+    return view('client.pages.article-list');
+});
+
+Route::get('/article', function () {
+    return view('client.pages.article');
+});
+
+
 
 
 Route::group(['namespace' => 'backend', 'prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], function () {

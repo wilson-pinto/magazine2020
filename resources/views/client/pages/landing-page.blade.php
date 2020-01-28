@@ -40,7 +40,24 @@
                             voluptatem velit commodi expedita, dolor quas iure obcaecati nobis amet non iusto totam
                             esse recusandae. Reiciendis, doloremque.
                         </p>
-                        <button class="wp-btn-primary">Read More</button>
+                        <a href="/posts" class="wp-btn-primary color-secondary text-decoration-none">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item caro-home">
+                <div class="row justify-content-center banners h-100">
+                    <div class="col-md-3 d-flex justify-content-center align-items-center">
+                        <img src="img/svg/script.svg" class="" alt="">
+                    </div>
+                    <div class="col-md-5 d-flex flex-column justify-content-center">
+                        <h1 class="pb-1 text-uppercase">Story</h1>
+                        <p class="pt-3">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe autem, eos porro ipsum
+                            voluptatem velit commodi expedita, dolor quas iure obcaecati nobis amet non iusto totam
+                            esse recusandae. Reiciendis, doloremque.
+                        </p>
+                        <a href="/article-list" class="wp-btn-primary color-secondary text-decoration-none">Read
+                            More</a>
                     </div>
                 </div>
             </div>

@@ -70,6 +70,13 @@
   font-family: "Alata", sans-serif;
 }
 
+.col-half {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 45.666667%;
+          flex: 0 0 45.666667%;
+  max-width: 45%;
+}
+
 .banner-main {
   background: url(/img/wills.jpg);
   background-size: cover;
@@ -217,6 +224,21 @@
   width: 100%;
 }
 
+.profile {
+  width: 80px;
+  height: 80px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  background: #fff !important;
+}
+
+.profile-sm {
+  width: 50px;
+  height: 50px;
+}
+
 .grid-img-wrapper {
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
@@ -230,16 +252,16 @@
 }
 
 .grid-img-wrapper .profile {
+  right: 15px;
+  border: 5px solid #fff !important;
+  bottom: 12px;
   width: 80px;
   height: 80px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 50%;
-  right: 15px;
   display: block;
-  bottom: 12px;
   background: #fff !important;
-  border: 5px solid #fff !important;
 }
 
 .grid-img-wrapper h5 {
@@ -250,6 +272,18 @@
 .grid-img-wrapper p {
   padding-left: 20px !important;
   padding-bottom: 10px !important;
+}
+
+.my-shadow {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.my-shadow:hover {
+  -webkit-box-shadow: 0 7px 9px rgba(0, 0, 0, 0.25), 0 5px 6px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 7px 9px rgba(0, 0, 0, 0.25), 0 5px 6px rgba(0, 0, 0, 0.22);
 }
 
 /* Responsive layout - makes a two column-layout instead of four columns */
