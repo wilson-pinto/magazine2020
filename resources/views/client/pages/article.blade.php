@@ -14,7 +14,7 @@
         <div class="row mx-0">
             <div class="col-md-1"></div>
             <div class="col-md-7">
-                <h2 class="pl-3 text-center">Lorem ipsum dolor sit amet.</h2>
+                <h2 class="pl-3 text-center color-primary">Lorem ipsum dolor sit amet.</h2>
                 <p class="mt-4 pl-3">
                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                     Excepturi fugiat nesciunt beatae,

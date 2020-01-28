@@ -1,6 +1,6 @@
 <div class="row mx-0 bg-secondary footer justify-content-center text-white flex-column align-items-center pt-5 pb-3">
-    <h1 class="font-valentine">Abhivyakta</h1>
-    <p class="pl-md-5 ml-4 font-alata">Karnataka Polytecnic, Mangaluru</p>
+    <h3 class="font-valentine">Abhivyakta</h3>
+    <p class="pl-md-5 ml-4 font-alata font-sm">Karnataka Polytecnic, Mangaluru</p>
 </div>
 <div class="row mx-0 justify-content-between bg-black text-white py-3 px-5 font-alata">
     <p class="mb-0 pb-0 font-sm">

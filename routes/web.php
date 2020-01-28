@@ -33,6 +33,10 @@ Route::get('/article', function () {
     return view('client.pages.article');
 });
 
+Route::get('/gallery', function () {
+    return view('client.pages.gallery');
+});
+
 
 
 

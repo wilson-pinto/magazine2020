@@ -4,7 +4,7 @@
 {{-- <div class="row banner-main mx-0 d-flex align-items-center justify-content-center">
     <h1 class="text-capitalize text-center font-weight-bold">Karnataka (govt.) polytecnic, <br> mangaluru</h1>
 </div> --}}
-<div class="row justify-content-center mx-0 w-100">
+<div class="row justify-content-center mx-0 w-100" id="abhivyakta">
     <div id="caroHome" class="carousel slide w-100" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#caroHome" data-slide-to="0" class="active"></li>
