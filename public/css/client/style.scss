@@ -24,6 +24,7 @@
 }
 
 $colorPrimary: #ffcc00;
+$colorPrimaryDark: #ffaa00;
 $colorSecondary: #204065;
 
 .fobnts {
@@ -66,10 +67,58 @@ $colorSecondary: #204065;
 }
 
 .nav-link {
-  color: #000 !important;
+  color: $colorSecondary !important;
   font-family: "Alata", sans-serif;
+  &.active {
+    color: $colorPrimaryDark !important;
+  }
 }
 
+.dropdown-menu {
+  background: $colorSecondary !important;
+  a {
+    color: #fff !important;
+    font-family: "Alata", sans-serif;
+    transition: all 0.3s;
+    &:hover {
+      background: #fff !important;
+      color: $colorSecondary !important;
+    }
+  }
+}
+.dropdown > .dropdown-menu {
+  top: 100% !important;
+  left: auto !important;
+  right: 0 !important;
+  transition: 0.4s all ease-in-out;
+}
+.dropdown:hover > .dropdown-menu {
+  display: block;
+  top: 100%;
+}
+
+.dropdown > .dropdown-toggle:active {
+  /*Without this, clicking will make it sticky*/
+  pointer-events: none;
+}
+
+.cats {
+  li {
+    transition: all 0.5s;
+    a {
+      transition: all 0.5s;
+      &.active {
+        color: $colorPrimaryDark !important;
+      }
+    }
+    &:hover {
+      margin-left: 3px;
+      a {
+        color: $colorPrimaryDark !important;
+      }
+    }
+  }
+}
 .col-half {
   flex: 0 0 45.666667%;
   max-width: 45%;
@@ -114,10 +163,6 @@ $colorSecondary: #204065;
       background: $colorPrimary !important;
     }
   }
-}
-
-.h-80 {
-  height: 80vh;
 }
 
 .banners-invert {
@@ -177,6 +222,7 @@ $colorSecondary: #204065;
   border: 2px solid $colorPrimary !important;
   width: fit-content;
   transition: 0.5s;
+  font-family: "Alata", sans-serif;
   &:hover {
     background: transparent !important;
   }

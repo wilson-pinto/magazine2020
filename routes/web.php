@@ -11,19 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/landing', 'client\LandingController@index');
+Route::get('/', 'client\LandingController@index');
 
-Route::get('posts', function () {
-    return view('client.pages.posts');
-});
+Route::get('contents/{catName}/{catRid}/{type}', 'client\PostController@index');
+
+// Route::get('posts', function () {
+//     return view('client.pages.posts');
+// });
 
 Route::get('article-list', function () {
     return view('client.pages.article-list');
@@ -35,6 +37,10 @@ Route::get('/article', function () {
 
 Route::get('/gallery', function () {
     return view('client.pages.gallery');
+});
+
+Route::get('/reports', function () {
+    return view('client.pages.reports');
 });
 
 

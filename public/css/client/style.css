@@ -66,8 +66,68 @@
 }
 
 .nav-link {
-  color: #000 !important;
+  color: #204065 !important;
   font-family: "Alata", sans-serif;
+}
+
+.nav-link.active {
+  color: #ffaa00 !important;
+}
+
+.dropdown-menu {
+  background: #204065 !important;
+}
+
+.dropdown-menu a {
+  color: #fff !important;
+  font-family: "Alata", sans-serif;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.dropdown-menu a:hover {
+  background: #fff !important;
+  color: #204065 !important;
+}
+
+.dropdown > .dropdown-menu {
+  top: 100% !important;
+  left: auto !important;
+  right: 0 !important;
+  -webkit-transition: 0.4s all ease-in-out;
+  transition: 0.4s all ease-in-out;
+}
+
+.dropdown:hover > .dropdown-menu {
+  display: block;
+  top: 100%;
+}
+
+.dropdown > .dropdown-toggle:active {
+  /*Without this, clicking will make it sticky*/
+  pointer-events: none;
+}
+
+.cats li {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.cats li a {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.cats li a.active {
+  color: #ffaa00 !important;
+}
+
+.cats li:hover {
+  margin-left: 3px;
+}
+
+.cats li:hover a {
+  color: #ffaa00 !important;
 }
 
 .col-half {
@@ -122,10 +182,6 @@
   height: 5px;
   border-radius: 3px;
   background: #ffcc00 !important;
-}
-
-.h-80 {
-  height: 80vh;
 }
 
 .banners-invert {
@@ -189,6 +245,7 @@
   width: fit-content;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  font-family: "Alata", sans-serif;
 }
 
 .wp-btn-primary:hover {

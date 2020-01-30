@@ -3,10 +3,12 @@
 @section('content')
 <div class="row mx-0 banners justify-content-center banner-cont">
     <div class="col-md-3 d-flex justify-content-start align-items-center">
-        <img src="img/svg/script.svg" class="" alt="">
+        <img src="/img/svg/{{$currentCat->img_url}}" class="" alt="">
     </div>
     <div class="col-md-3 d-flex flex-column justify-content-center">
-        <h1 class="pb-1 text-uppercase text-white">Story</h1>
+        <h1 class="pb-1 text-uppercase text-white">
+            {{$currentCat->name}}
+        </h1>
     </div>
 </div>
 <div class="row mx-0 justify-content-center">
@@ -50,15 +52,9 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <h3 class="mb-4 text-uppercase head-border pb-2">Categories</h3>
-                <p class="mb-0 mt-1 pb-2 font-alata ml-2">Lorem, ipsum. (5)</p>
-                <p class="mb-0 mt-1 pb-2 font-alata ml-2">Lorem, ipsum. (5)</p>
-                <p class="mb-0 mt-1 pb-2 font-alata ml-2">Lorem, ipsum. (5)</p>
-                <p class="mb-0 mt-1 pb-2 font-alata ml-2">Lorem, ipsum. (5)</p>
-                <hr class="border-btm mt-5">
-
+                @include('client.includes.categories')
                 <h3 class="mb-3 mt-5 text-uppercase head-border pb-2">Review</h3>
-                <p class="col--md-10 ml-2">
+                <p class="col--md-10 ml-2 font-alata">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse obcaecati nisi cumque inventore.
                 </p>
                 <a href="/review" class="wp-btn-primary color-secondary text-decoration-none ml-2">Review</a>
