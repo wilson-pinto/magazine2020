@@ -68,9 +68,11 @@
 .nav-link {
   color: #204065 !important;
   font-family: "Alata", sans-serif;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
-.nav-link.active {
+.nav-link.active, .nav-link:hover {
   color: #ffaa00 !important;
 }
 
@@ -257,6 +259,10 @@
   background: #fff !important;
   margin-bottom: 30px !important;
   border-radius: 15px;
+}
+
+.cont-out {
+  margin-top: -5vh !important;
 }
 
 .img-grid-row {

@@ -11,10 +11,10 @@
         </h1>
     </div>
 </div>
-<div class="row mx-0 justify-content-center">
-    <div class="col-md-10 shadow-lg py-5 wrapper-cont">
-        <div class="row mx-0">
-            <div class="col-md-9">
+<div class="row mx-0 justify-content-center cont-out mb-5">
+    <div class="col-md-8 pr-5">
+        <div class="row bg-white shadow-lg mx-0 px-3 py-5">
+            <div class="col">
                 <div class="row mx-0 pl-4">
                     <a href="/article"
                         class="col-half d-flex align-items-center my-shadow mr-4 mb-3 py-2 text-decoration-none">
@@ -51,7 +51,11 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-3">
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="row bg-white shadow-lg mx-0 px-3 py-5">
+            <div class="col">
                 @include('client.includes.categories')
                 <h3 class="mb-3 mt-5 text-uppercase head-border pb-2">Review</h3>
                 <p class="col--md-10 ml-2 font-alata">

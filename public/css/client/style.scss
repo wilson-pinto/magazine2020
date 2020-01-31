@@ -69,7 +69,9 @@ $colorSecondary: #204065;
 .nav-link {
   color: $colorSecondary !important;
   font-family: "Alata", sans-serif;
-  &.active {
+  transition: all 0.5s;
+  &.active,
+  &:hover {
     color: $colorPrimaryDark !important;
   }
 }
@@ -233,6 +235,10 @@ $colorSecondary: #204065;
   background: #fff !important;
   margin-bottom: 30px !important;
   border-radius: 15px;
+}
+
+.cont-out {
+  margin-top: -5vh !important;
 }
 
 .img-grid-row {
