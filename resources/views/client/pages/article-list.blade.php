@@ -15,40 +15,21 @@
     <div class="col-md-8 pr-5">
         <div class="row bg-white shadow-lg mx-0 px-3 py-5">
             <div class="col">
-                <div class="row mx-0 pl-4">
-                    <a href="/article"
-                        class="col-half d-flex align-items-center my-shadow mr-4 mb-3 py-2 text-decoration-none">
-                        <img src="/img/college-bg.jpg" class="profile ml-2" alt="">
+                <div class="row mx-0 px-4">
+                    @foreach ($articles as $article)
+                    <a href="/article/{{$currentCat->name}}/{{$article->article_rid}}"
+                        class="col-12 d-flex align-items-center my-shadow mb-3 py-2 text-decoration-none">
+                        <img src="{{$article->author->profile_img == null ? '/img/no-img.png' : '/img/author/'.$article->author->profile_img}}"
+                            class="profile ml-2" alt="">
                         <div class="d-flex flex-column justify-content-center pl-3 text-dark">
-                            <h4 class="mb-0">Lorem ipsum dolor sit amet.</h4>
+                            <h4 class="mb-0">{{$article->title}}</h4>
                             <p class="mb-0">
-                                <span class="font-weight-bold">Wilson Pinto</span>
-                                - <span class="font-sm">Computer Science & Engg</span>
+                                <span class="font-weight-bold">{{$article->author->name}}</span>
+                                - <span class="font-sm">{{$article->author->branch->name}}</span>
                             </p>
                         </div>
                     </a>
-                    <a href="/article"
-                        class="col-half d-flex align-items-center my-shadow mr-4 mb-3 py-2 text-decoration-none">
-                        <img src="/img/college-bg.jpg" class="profile ml-2" alt="">
-                        <div class="d-flex flex-column justify-content-center pl-3 text-dark">
-                            <h4 class="mb-0">Lorem ipsum dolor sit amet.</h4>
-                            <p class="mb-0">
-                                <span class="font-weight-bold">Wilson Pinto</span>
-                                - <span class="font-sm">Computer Science & Engg</span>
-                            </p>
-                        </div>
-                    </a>
-                    <a href="/article"
-                        class="col-half d-flex align-items-center my-shadow mr-4 mb-3 py-2 text-decoration-none">
-                        <img src="/img/college-bg.jpg" class="profile ml-2" alt="">
-                        <div class="d-flex flex-column justify-content-center pl-3 text-dark">
-                            <h4 class="mb-0">Lorem ipsum dolor sit amet.</h4>
-                            <p class="mb-0">
-                                <span class="font-weight-bold">Wilson Pinto</span>
-                                - <span class="font-sm">Computer Science & Engg</span>
-                            </p>
-                        </div>
-                    </a>
+                    @endforeach
                 </div>
             </div>
         </div>

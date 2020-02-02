@@ -4,6 +4,7 @@ namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\DataDictionary;
 use Illuminate\Http\Request;
 
 class LandingController extends Controller
@@ -18,5 +19,11 @@ class LandingController extends Controller
     public static function getCats()
     {
         return Category::all();
+    }
+
+    public static function getGalCats()
+    {
+        return DataDictionary::where('dd_type', 1)
+            ->get();
     }
 }

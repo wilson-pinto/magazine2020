@@ -353,6 +353,21 @@
           box-shadow: 0 7px 9px rgba(0, 0, 0, 0.25), 0 5px 6px rgba(0, 0, 0, 0.22);
 }
 
+.article-wys-wyg img {
+  display: block;
+  margin: auto;
+  width: 60%;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.article-wys-wyg img:hover {
+  -webkit-box-shadow: 0 7px 9px rgba(0, 0, 0, 0.25), 0 5px 6px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 7px 9px rgba(0, 0, 0, 0.25), 0 5px 6px rgba(0, 0, 0, 0.22);
+}
+
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 800px) {
   .img-grid-column {

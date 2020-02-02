@@ -20,39 +20,38 @@
                         @else
                         @php
                         $counts = count($posts)/3;
-                        @endphp
-                        @foreach(array_chunk($posts, round($counts)) as $chunk)
-                        <div class="img-grid-column">
+                        $counts = $counts < 2 ? 1 : $counts; @endphp @foreach(array_chunk($posts, round($counts)) as
+                            $chunk) <div class="img-grid-column">
                             @foreach($chunk as $p)
                             <div class="grid-img-wrapper position-relative">
                                 <img src="{{$p['cat_rid'] == 2 ? '/img/photographs/'.$p['img_url'] : '/img/drawings/'.$p['img_url']}}"
                                     style="width:100%">
                                 <h5 class="mb-0 pb-0 pt-1">{{$p['author']['name']}}</h5>
-                                <p class="pt-0 mt-0 font-sm">Computer Science & Engg</p>
+                                <p class="pt-0 mt-0 font-sm">{{$p['author']['branch']['name']}}</p>
                                 <img src="{{$p['author']['profile_img'] == null ? '/img/no-img.png' : '/img/author/'.$p['author']['profile_img']}}"
                                     alt="" class="profile position-absolute">
                             </div>
                             @endforeach
-                        </div>
-                        @endforeach
-                        @endif
                 </div>
+                @endforeach
+                @endif
             </div>
         </div>
     </div>
-    <div class="col-md-3">
-        <div class="row bg-white shadow-lg mx-0 px-3 py-5">
-            <div class="col">
-                @include('client.includes.categories')
-                <h3 class="mb-3 mt-5 text-uppercase head-border pb-2">Review</h3>
-                <p class="col--md-10 ml-2 font-alata">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse obcaecati nisi cumque inventore.
-                </p>
-                <a href="/review" class="wp-btn-primary color-secondary text-decoration-none ml-2">Review</a>
-                <hr class="border-btm mt-5">
-            </div>
+</div>
+<div class="col-md-3">
+    <div class="row bg-white shadow-lg mx-0 px-3 py-5">
+        <div class="col">
+            @include('client.includes.categories')
+            <h3 class="mb-3 mt-5 text-uppercase head-border pb-2">Review</h3>
+            <p class="col--md-10 ml-2 font-alata">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse obcaecati nisi cumque inventore.
+            </p>
+            <a href="/review" class="wp-btn-primary color-secondary text-decoration-none ml-2">Review</a>
+            <hr class="border-btm mt-5">
         </div>
     </div>
+</div>
 </div>
 
 @endsection

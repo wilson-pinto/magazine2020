@@ -41,6 +41,12 @@
                 <span class="menu-collapsed">Photographs</span>
             </div>
         </a>
+        <a href="{{ URL::to('/admin/gallery') }}" class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-start align-items-center">
+                <span class="fa fa-picture-o mr-3" data-toggle="tooltip" data-placement="right" title="News"></span>
+                <span class="menu-collapsed">Gallery</span>
+            </div>
+        </a>
         <a href="{{ route('logout') }}"
             onclick="event.preventDefault(); document.getElementById('frm-logout').submit();"
             class="list-group-item list-group-item-action">

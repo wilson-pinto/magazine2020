@@ -1,5 +1,6 @@
 <?php use App\Http\Controllers\client\LandingController;
 $headerCats =  LandingController::getCats();
+$headerGal =  LandingController::getGalCats();
 ?>
 
 <div class="col px-0 bg-secondary">
@@ -42,12 +43,7 @@ $headerCats =  LandingController::getCats();
                             Messeges
                         </a>
                         <div class="dropdown-menu border-0 bg-dark" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Story</a>
-                            <a class="dropdown-item" href="#">Poem's</a>
-                            <a class="dropdown-item" href="#">Technical Article</a>
-                            <a class="dropdown-item" href="#">Non Technical Article</a>
-                            <a class="dropdown-item" href="#">Drawings</a>
-                            <a class="dropdown-item" href="#">Photographs</a>
+
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -56,12 +52,7 @@ $headerCats =  LandingController::getCats();
                             Principals Note
                         </a>
                         <div class="dropdown-menu border-0 bg-dark" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Story</a>
-                            <a class="dropdown-item" href="#">Poem's</a>
-                            <a class="dropdown-item" href="#">Technical Article</a>
-                            <a class="dropdown-item" href="#">Non Technical Article</a>
-                            <a class="dropdown-item" href="#">Drawings</a>
-                            <a class="dropdown-item" href="#">Photographs</a>
+
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -70,12 +61,7 @@ $headerCats =  LandingController::getCats();
                             Editors Note
                         </a>
                         <div class="dropdown-menu border-0 bg-dark" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Story</a>
-                            <a class="dropdown-item" href="#">Poem's</a>
-                            <a class="dropdown-item" href="#">Technical Article</a>
-                            <a class="dropdown-item" href="#">Non Technical Article</a>
-                            <a class="dropdown-item" href="#">Drawings</a>
-                            <a class="dropdown-item" href="#">Photographs</a>
+
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -83,13 +69,12 @@ $headerCats =  LandingController::getCats();
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Gallery
                         </a>
-                        <div class="dropdown-menu border-0 bg-dark" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Story</a>
-                            <a class="dropdown-item" href="#">Poem's</a>
-                            <a class="dropdown-item" href="#">Technical Article</a>
-                            <a class="dropdown-item" href="#">Non Technical Article</a>
-                            <a class="dropdown-item" href="#">Drawings</a>
-                            <a class="dropdown-item" href="#">Photographs</a>
+                        <div class="dropdown-menu border-0 bg-primary" aria-labelledby="navbarDropdown">
+                            @foreach ($headerGal as $hg)
+                            <a class="dropdown-item" href="/gallery/{{$hg->dd_value}}/{{$hg->dd_index}}">
+                                {{$hg->dd_value}}
+                            </a>
+                            @endforeach
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -98,12 +83,7 @@ $headerCats =  LandingController::getCats();
                             Reports
                         </a>
                         <div class="dropdown-menu border-0 bg-dark" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Story</a>
-                            <a class="dropdown-item" href="#">Poem's</a>
-                            <a class="dropdown-item" href="#">Technical Article</a>
-                            <a class="dropdown-item" href="#">Non Technical Article</a>
-                            <a class="dropdown-item" href="#">Drawings</a>
-                            <a class="dropdown-item" href="#">Photographs</a>
+
                         </div>
                     </li>
                 </ul>

@@ -23,26 +23,13 @@ Route::get('/', 'client\LandingController@index');
 
 Route::get('contents/{catName}/{catRid}/{type}', 'client\PostController@index');
 
-// Route::get('posts', function () {
-//     return view('client.pages.posts');
-// });
+Route::get('article/{catName}/{articleRid}', 'client\PostController@getArticle');
 
-Route::get('article-list', function () {
-    return view('client.pages.article-list');
-});
-
-Route::get('/article', function () {
-    return view('client.pages.article');
-});
-
-Route::get('/gallery', function () {
-    return view('client.pages.gallery');
-});
+Route::get('gallery/{galType}/{galTypeId}', 'client\GalleryController@index');
 
 Route::get('/reports', function () {
     return view('client.pages.reports');
 });
-
 
 
 
@@ -59,4 +46,7 @@ Route::group(['namespace' => 'backend', 'prefix' => 'admin', 'as' => 'admin.', '
 
     Route::resource('photographs', 'PhotographController');
     Route::get('photographs-showAll', 'PhotographController@showAll');
+
+    Route::resource('gallery', 'GalleryController');
+    Route::get('gallery-showAll', 'GalleryController@showAll');
 });
