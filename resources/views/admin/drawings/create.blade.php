@@ -18,13 +18,19 @@
             <form method="post" enctype="multipart/form-data" action="{{ route('admin.drawings.store') }}">
                 @endif
                 {{ csrf_field() }}
-
                 <div class="form-group row px-3">
-                    <label for="title">Title</label>
-                    <input id="title" name="title"
-                        class="form-control rounded-0 @error('authorName') is-invalid @enderror"
-                        value="{{isset($post)?$post->title : '' }}" required autofocus placeholder="Name">
-                    <div class="invalid-feedback"> </div>
+                    <label for="catName">Image</label>
+                    <div class="custom-file">
+                        <input id="postImgrOld" name="postImgOld" type="hidden"
+                            value="{{isset($post)?$post->img_url : ''}}">
+                        <input id="postImg" name="postImg" type="file"
+                            class="custom-file-input rounded-0 @error('postImg') is-invalid @enderror"
+                            placeholder="Image">
+                        <label class="custom-file-label rounded-0"
+                            for="customFile">{{isset($post)?$post->img_url : 'Choose file' }}</label>
+                        <div class="invalid-feedback"> </div>
+                    </div>
+                    <img src="{{isset($post) ? '/img/drawings/'. $post->img_url : ''}}" class="mt-4" height="50px">
                 </div>
                 <div class="form-group row px-3">
                     <label for="authorName">Author</label>
@@ -41,21 +47,6 @@
                     </select>
                     <div class="invalid-feedback"> </div>
                 </div>
-                <div class="form-group row px-3">
-                    <label for="catName">Image</label>
-                    <div class="custom-file">
-                        <input id="postImgrOld" name="postImgOld" type="hidden"
-                            value="{{isset($post)?$post->img_url : ''}}">
-                        <input id="postImg" name="postImg" type="file"
-                            class="custom-file-input rounded-0 @error('postImg') is-invalid @enderror"
-                            placeholder="Image">
-                        <label class="custom-file-label rounded-0"
-                            for="customFile">{{isset($post)?$post->img_url : 'Choose file' }}</label>
-                        <div class="invalid-feedback"> </div>
-                    </div>
-                    <img src="{{isset($post) ? '/img/drawings/'. $post->img_url : ''}}" class="mt-4" height="50px">
-                </div>
-
                 <div class="form-group row  mt-4">
                     <div class="col">
                         <div class="card mt-3 ">

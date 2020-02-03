@@ -5,9 +5,6 @@
     <thead>
         <tr>
             <th>
-                Title
-            </th>
-            <th>
                 Author
             </th>
             <th>
@@ -27,9 +24,6 @@
     <tbody>
         @foreach($posts as $post)
         <tr>
-            <td>
-                {{$post->title}}
-            </td>
             <td class="text-capitalize">
                 {{$post->Author->name}}
             </td>
@@ -49,10 +43,10 @@
                     href="/admin/photographs/{{$post->post_rid}}/edit">
                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                 </a>
-                <button class="btn btn-warning px-2 text-white" data-toggle="tooltip" title="Delete"
+                {{-- <button class="btn btn-warning px-2 text-white" data-toggle="tooltip" title="Delete"
                     onclick="deletePost({{$post->article_rid}})">
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                </button>
+                <i class="fa fa-trash" aria-hidden="true"></i>
+                </button> --}}
             </td>
         </tr>
         @endforeach

@@ -60,7 +60,6 @@ class DrawingController extends Controller
         }
 
         $post = new Post();
-        $post->title = $request->input('title');
         $post->author_rid = $request->input('author');
         $post->img_url = $postImg;
         $post->cat_rid = 1;
@@ -114,7 +113,6 @@ class DrawingController extends Controller
             $post->img_url = $postImg;
         }
 
-        $post->title = $request->input('title');
         $post->author_rid = $request->input('author');
         $post->cat_rid = 1;
         $post->status = $request->input('status') ? 1 : 0;
@@ -138,6 +136,7 @@ class DrawingController extends Controller
     {
         $posts = Post::with('author')
             ->where('cat_rid', 1)
+            ->orderby('post_rid', 'desc')
             ->get();
 
         return view('admin.drawings.table', compact('posts'));

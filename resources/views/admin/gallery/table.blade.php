@@ -46,10 +46,10 @@
                     href="/admin/gallery/{{$gal->gal_rid}}/edit">
                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                 </a>
-                <button class="btn btn-warning px-2 text-white" data-toggle="tooltip" title="Delete"
+                {{-- <button class="btn btn-warning px-2 text-white" data-toggle="tooltip" title="Delete"
                     onclick="deletePost({{$gal->gal_rid}})">
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                </button>
+                <i class="fa fa-trash" aria-hidden="true"></i>
+                </button> --}}
             </td>
         </tr>
         @endforeach

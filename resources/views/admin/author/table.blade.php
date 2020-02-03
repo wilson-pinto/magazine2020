@@ -11,9 +11,6 @@
                 Name
             </th>
             <th>
-                Branch/Year
-            </th>
-            <th>
                 Type
             </th>
             <th>
@@ -35,11 +32,7 @@
                 {{$author->name}}
             </td>
             <td>
-                {{$author->branch->name}}/{{$author->year}}
-            </td>
-            <td>
-                {{ $author->type==1? 'Student' : '' }} {{ $author->type==2? 'Lecturer' : '' }}
-                {{ $author->type==3? 'Old Student' : '' }}
+                {{$author->branch->name}}
             </td>
             <td>
                 {{ $author->status==1? 'Active' : 'Inactive' }}

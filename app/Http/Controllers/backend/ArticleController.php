@@ -115,7 +115,9 @@ class ArticleController extends Controller
 
     public function showAll()
     {
-        $articles = Article::with('author')->get();
+        $articles = Article::with('author')
+            ->with('category')
+            ->get();
 
         return view('admin.article.table', compact('articles'));
     }

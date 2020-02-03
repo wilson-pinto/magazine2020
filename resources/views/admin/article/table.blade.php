@@ -8,6 +8,9 @@
                 Title
             </th>
             <th>
+                Category
+            </th>
+            <th>
                 Author
             </th>
             <th>
@@ -27,6 +30,9 @@
             <td>
                 {{$article->title}}
             </td>
+            <td>
+                {{$article->category->name}}
+            </td>
             <td class="text-capitalize">
                 {{$article->Author->name}}
             </td>
@@ -43,10 +49,10 @@
                     href="/admin/article/{{$article->article_rid}}/edit">
                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                 </a>
-                <button class="btn btn-warning px-2 text-white" data-toggle="tooltip" title="Delete"
+                {{-- <button class="btn btn-warning px-2 text-white" data-toggle="tooltip" title="Delete"
                     onclick="deletePost({{$article->article_rid}})">
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                </button>
+                <i class="fa fa-trash" aria-hidden="true"></i>
+                </button> --}}
             </td>
         </tr>
         @endforeach

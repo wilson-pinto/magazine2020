@@ -60,7 +60,6 @@ class PhotographController extends Controller
         }
 
         $post = new Post();
-        $post->title = $request->input('title');
         $post->author_rid = $request->input('author');
         $post->img_url = $postImg;
         $post->cat_rid = 2;
@@ -112,7 +111,6 @@ class PhotographController extends Controller
             $post->img_url = $postImg;
         }
 
-        $post->title = $request->input('title');
         $post->author_rid = $request->input('author');
         $post->cat_rid = 2;
         $post->status = $request->input('status') ? 1 : 0;
@@ -136,6 +134,7 @@ class PhotographController extends Controller
     {
         $posts = Post::with('author')
             ->where('cat_rid', 2)
+            ->orderby('post_rid', 'desc')
             ->get();
 
         return view('admin.photographs.table', compact('posts'));
