@@ -65,11 +65,9 @@ class PhotographController extends Controller
         $post->img_url = $postImg;
         $post->cat_rid = 2;
         $post->status = $request->input('status') ? 1 : 0;
-        // post_rid, title, img_url, cat_rid, author_rid, created_at, updated_at, deleted_at, status
         $post->save();
 
-        Session::flash('message', 'Form submitted successfully!');
-        return Redirect::to('/admin/photographs');
+        return Redirect::to('/admin/photographs')->with('message', 'Record Created Successfully!!!');
     }
 
     /**
@@ -118,11 +116,9 @@ class PhotographController extends Controller
         $post->author_rid = $request->input('author');
         $post->cat_rid = 2;
         $post->status = $request->input('status') ? 1 : 0;
-        // post_rid, title, img_url, cat_rid, author_rid, created_at, updated_at, deleted_at, status
         $post->save();
 
-        Session::flash('message', 'Form submitted successfully!');
-        return Redirect::to('/admin/photographs');
+        return Redirect::to('/admin/photographs')->with('message', 'Record Updated Successfully!!!');
     }
 
     /**

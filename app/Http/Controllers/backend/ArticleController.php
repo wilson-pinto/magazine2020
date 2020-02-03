@@ -52,9 +52,8 @@ class ArticleController extends Controller
         $article->status = $request->input('status') ? 1 : 0;
 
         $article->save();
-        // redirect
-        Session::flash('message', 'Form submitted successfully!');
-        return Redirect::to('/admin/article');
+
+        return Redirect::to('/admin/article')->with('message', 'Record Created Successfully!!!');
     }
 
     /**
@@ -99,9 +98,8 @@ class ArticleController extends Controller
         $article->status = $request->input('status') ? 1 : 0;
 
         $article->save();
-        // redirect
-        Session::flash('message', 'Form submitted successfully!');
-        return Redirect::to('/admin/article');
+
+        return Redirect::to('/admin/article')->with('message', 'Record Updated Successfully!!!');
     }
 
     /**

@@ -68,9 +68,8 @@ class AuthorController extends Controller
         $author->status = $request->input('status') ? 1 : 0;
 
         $author->save();
-        // redirect
-        Session::flash('message', 'Form submitted successfully!');
-        return Redirect::to('/admin/author');
+
+        return Redirect::to('/admin/author')->with('message', 'Record Created Successfully!!!');
     }
 
     /**
@@ -119,9 +118,7 @@ class AuthorController extends Controller
         $author->status = $request->input('status') ? 1 : 0;
 
         $author->save();
-        // redirect
-        Session::flash('message', 'Form submitted successfully!');
-        return Redirect::to('/admin/author');
+        return Redirect::to('/admin/author')->with('message', 'Record Updated Successfully!!!');
     }
 
     /**

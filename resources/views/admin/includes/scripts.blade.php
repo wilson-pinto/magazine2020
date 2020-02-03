@@ -23,4 +23,15 @@
         }
 </script>
 
+<script>
+    function showSnackBar(messege) {
+        var snackBar = $('#snackbar');
+        snackBar.addClass('show');
+        snackBar.text(messege);
+        setTimeout(function(){ 
+            snackBar.removeClass('show'); 
+        }, 3000);
+    }
+</script>
+
 @yield('scripts')

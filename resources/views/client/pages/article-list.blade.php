@@ -16,20 +16,23 @@
         <div class="row bg-white shadow-lg mx-0 px-3 py-5">
             <div class="col">
                 <div class="row mx-0 px-4">
-                    @foreach ($articles as $article)
-                    <a href="/article/{{$currentCat->name}}/{{$article->article_rid}}"
-                        class="col-12 d-flex align-items-center my-shadow mb-3 py-2 text-decoration-none">
-                        <img src="{{$article->author->profile_img == null ? '/img/no-img.png' : '/img/author/'.$article->author->profile_img}}"
-                            class="profile ml-2" alt="">
-                        <div class="d-flex flex-column justify-content-center pl-3 text-dark">
-                            <h4 class="mb-0">{{$article->title}}</h4>
-                            <p class="mb-0">
-                                <span class="font-weight-bold">{{$article->author->name}}</span>
-                                - <span class="font-sm">{{$article->author->branch->name}}</span>
-                            </p>
-                        </div>
-                    </a>
-                    @endforeach
+                    @if(count($articles)<1) <p>No Results</p>
+                        @else
+                        @foreach ($articles as $article)
+                        <a href="/article/{{$currentCat->name}}/{{$article->article_rid}}"
+                            class="col-12 d-flex align-items-center my-shadow mb-3 py-2 text-decoration-none">
+                            <img src="{{$article->author->profile_img == null ? '/img/no-img.png' : '/img/author/'.$article->author->profile_img}}"
+                                class="profile ml-2" alt="">
+                            <div class="d-flex flex-column justify-content-center pl-3 text-dark">
+                                <h4 class="mb-0">{{$article->title}}</h4>
+                                <p class="mb-0">
+                                    <span class="font-weight-bold">{{$article->author->name}}</span>
+                                    - <span class="font-sm">{{$article->author->branch->name}}</span>
+                                </p>
+                            </div>
+                        </a>
+                        @endforeach
+                        @endif
                 </div>
             </div>
         </div>

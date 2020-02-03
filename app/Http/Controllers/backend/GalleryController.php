@@ -71,8 +71,7 @@ class GalleryController extends Controller
 
         $gal->save();
 
-        Session::flash('message', 'Form submitted successfully!');
-        return Redirect::to('/admin/gallery');
+        return Redirect::to('/admin/gallery')->with('message', 'Record Created Successfully!!!');
     }
 
     /**
@@ -125,8 +124,7 @@ class GalleryController extends Controller
 
         $gal->save();
 
-        Session::flash('message', 'Form submitted successfully!');
-        return Redirect::to('/admin/gallery');
+        return Redirect::to('/admin/gallery')->with('message', 'Record Updated Successfully!!!');
     }
 
     /**

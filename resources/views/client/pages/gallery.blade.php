@@ -10,21 +10,21 @@
     <div class="col-md-8 pr-md-5">
         <div class="row bg-white shadow-lg mx-0 px-3 py-5">
             <div class="col px-3">
-                @if ($currentGalType->dd_index == 1)
-                @foreach ($gallery as $g)
-                <div class="my-shadow">
-                    <div class="embed-responsive embed-responsive-21by9">
-                        <iframe class="embed-responsive-item" src="{{$g['url']}}"></iframe>
+                @if(count($gallery)<1) <p>No Results</p>
+                    @else
+                    @if ($currentGalType->dd_index == 1)
+                    @foreach ($gallery as $g)
+                    <div class="my-shadow">
+                        <div class="embed-responsive embed-responsive-21by9">
+                            <iframe class="embed-responsive-item" src="{{$g['url']}}"></iframe>
+                        </div>
+                        <p class="py-3 mt-0 font-alata text-center font-sm text-uppercase">
+                            {{$g['desc']}}
+                        </p>
                     </div>
-                    <p class="py-3 mt-0 font-alata text-center font-sm text-uppercase">
-                        {{$g['desc']}}
-                    </p>
-                </div>
-                @endforeach
-                @else
-                <div class="img-grid-row">
-                    @if(count($gallery)<1) <p>No Results</p>
-                        @else
+                    @endforeach
+                    @else
+                    <div class="img-grid-row">
                         @php
                         $counts = count($gallery)/3;
                         $counts = $counts < 2 ? 1 : $counts ; @endphp @foreach(array_chunk($gallery, round($counts)) as
@@ -37,10 +37,11 @@
                                 </p>
                             </div>
                             @endforeach
-                </div>
-                @endforeach
-                @endif
+                    </div>
+                    @endforeach
+
             </div>
+            @endif
             @endif
         </div>
     </div>
