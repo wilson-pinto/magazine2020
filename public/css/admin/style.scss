@@ -76,8 +76,9 @@ $colorLight: #dde1e8;
 }
 
 .brand-collapsed {
-  height: 40px;
-  margin-left: 0;
+  // height: 40px;
+  // margin-left: 0;
+  display: none;
 }
 
 .sidebar-container {
@@ -216,10 +217,13 @@ $colorLight: #dde1e8;
 td {
   vertical-align: middle !important;
 }
-
+tr {
+  transition: all 0.5s;
+}
 .auth-bg {
   background: linear-gradient(0deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url(bg-login.jpg);
 }
+
 .snackbar {
   visibility: hidden;
   min-width: 250px;

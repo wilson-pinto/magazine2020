@@ -368,6 +368,10 @@
           box-shadow: 0 7px 9px rgba(0, 0, 0, 0.25), 0 5px 6px rgba(0, 0, 0, 0.22);
 }
 
+.bio p {
+  margin-bottom: 0 !important;
+}
+
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 800px) {
   .img-grid-column {

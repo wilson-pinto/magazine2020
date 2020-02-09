@@ -63,8 +63,8 @@ class AuthorController extends Controller
         $author->name = $request->input('authorName');
         $author->profile_img = $authorImage;
         $author->branch_rid = $request->input('branch');
-        $author->year = $request->input('year');
-        $author->type = $request->input('type');
+        // $author->year = $request->input('year');
+        // $author->type = $request->input('type');
         $author->status = $request->input('status') ? 1 : 0;
 
         $author->save();
@@ -113,8 +113,6 @@ class AuthorController extends Controller
 
         $author->name = $request->input('authorName');
         $author->branch_rid = $request->input('branch');
-        $author->year = $request->input('year');
-        $author->type = $request->input('type');
         $author->status = $request->input('status') ? 1 : 0;
 
         $author->save();

@@ -11,6 +11,7 @@
             $('.menu-collapsed').toggleClass('d-none');
             $('.brand').toggleClass('brand-collapsed');
             $('#sidebar-container').toggleClass('sidebar-expanded sidebar-collapsed');
+            // $('.brand').toggleClass('d-none d-block')
             // $('#sidebar-container').toggleClass('d-none d-block');
             
             var SeparatorTitle = $('.sidebar-separator-title');

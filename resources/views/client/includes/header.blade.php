@@ -1,6 +1,7 @@
 <?php use App\Http\Controllers\client\LandingController;
 $headerCats =  LandingController::getCats();
 $headerGal =  LandingController::getGalCats();
+$reports =  LandingController::getReports();
 ?>
 
 <div class="col px-0 bg-secondary">
@@ -83,7 +84,11 @@ $headerGal =  LandingController::getGalCats();
                             Reports
                         </a>
                         <div class="dropdown-menu border-0 bg-dark" aria-labelledby="navbarDropdown">
-
+                            @foreach ($reports as $hr)
+                            <a class="dropdown-item" href="/reports/{{$hr->title}}/{{$hr->mnr_rid}}">
+                                {{$hr->title}}
+                            </a>
+                            @endforeach
                         </div>
                     </li>
                 </ul>

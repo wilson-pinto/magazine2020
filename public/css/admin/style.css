@@ -73,8 +73,7 @@
 }
 
 .brand-collapsed {
-  height: 40px;
-  margin-left: 0;
+  display: none;
 }
 
 .sidebar-container {
@@ -222,6 +221,11 @@
 
 td {
   vertical-align: middle !important;
+}
+
+tr {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .auth-bg {

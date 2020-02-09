@@ -58,53 +58,51 @@
                     </select>
                     <div class="invalid-feedback"> </div>
                 </div>
-                <div class="form-group row px-3">
+                {{-- <div class="form-group row px-3">
                     <label for="year">Year</label>
                     <input id="year" name="year" class="form-control rounded-0 @error('year') is-invalid @enderror"
                         value="{{isset($author)?$author->year : '' }}" autofocus placeholder="Year">
-                    <div class="invalid-feedback"> </div>
-                </div>
-                <div class="form-group row px-3 mt-4">
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="typeStudent" name="type" class="custom-control-input" value="1"
-                            {{ isset($author)?$author->type == 1 ? 'checked' : '' : 'checked' }}>
-                        <label class="custom-control-label" for="typeStudent">Student</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="typeLecturer" name="type" class="custom-control-input" value="2"
-                            {{ isset($author)?$author->type == 2 ? 'checked' : '' : '' }}>
-                        <label class="custom-control-label" for="typeLecturer">Lecturer
-                        </label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="typeOldStudent" name="type" class="custom-control-input" value="3"
-                            {{ isset($author)?$author->type == 3 ? 'checked' : '' : '' }}>
-                        <label class="custom-control-label" for="typeOldStudent">Old Student
-                        </label>
-                    </div>
-                    <div class="invalid-feedback"> </div>
-                </div>
-                <div class="form-group row  mt-4">
-                    <div class="col">
-                        <div class="card mt-3 ">
-                            <div class="card-body form-group row justify-content-between align-items-center">
-                                <label class="col-md-1 col-form-label" for="status">Status</label>
-                                <div class="col align-self-center">
-                                    <div class="custom-control custom-switch">
-                                        <input type="checkbox"
-                                            {{ isset($author)?$author->status==1? 'checked' : '' : 'checked' }}
-                                            class="custom-control-input" id="status" name="status">
-                                        <label class="custom-control-label" for="status"></label>
-                                    </div>
-                                </div>
-                                <button type="submit" id="submit"
-                                    class="mr-3 btn btn-warning font-primary-semiBold text-uppercase">
-                                    {{ isset($author)?'Edit' : 'Create'}}
-                                </button>
-                            </div>
+                <div class="invalid-feedback"> </div>
+    </div>
+    <div class="form-group row px-3 mt-4">
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="typeStudent" name="type" class="custom-control-input" value="1"
+                {{ isset($author)?$author->type == 1 ? 'checked' : '' : 'checked' }}>
+            <label class="custom-control-label" for="typeStudent">Student</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="typeLecturer" name="type" class="custom-control-input" value="2"
+                {{ isset($author)?$author->type == 2 ? 'checked' : '' : '' }}>
+            <label class="custom-control-label" for="typeLecturer">Lecturer
+            </label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="typeOldStudent" name="type" class="custom-control-input" value="3"
+                {{ isset($author)?$author->type == 3 ? 'checked' : '' : '' }}>
+            <label class="custom-control-label" for="typeOldStudent">Old Student
+            </label>
+        </div>
+        <div class="invalid-feedback"> </div>
+    </div> --}}
+    <div class="form-group row  mt-4">
+        <div class="col">
+            <div class="card mt-3 ">
+                <div class="card-body form-group row justify-content-between align-items-center">
+                    <label class="col-md-1 col-form-label" for="status">Status</label>
+                    <div class="col align-self-center">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" {{ isset($author)?$author->status==1? 'checked' : '' : 'checked' }}
+                                class="custom-control-input" id="status" name="status">
+                            <label class="custom-control-label" for="status"></label>
                         </div>
                     </div>
-            </form>
+                    <button type="submit" id="submit" class="mr-3 btn btn-warning font-primary-semiBold text-uppercase">
+                        {{ isset($author)?'Edit' : 'Create'}}
+                    </button>
+                </div>
+            </div>
+        </div>
+        </form>
     </div>
 </div>
 

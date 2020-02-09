@@ -1,4 +1,4 @@
-@if(count($reports) == 0)
+@if(count($articles) == 0)
 <h5 class="ml-4">No Results</h5>
 @else
 <table class="table table-hover">
@@ -22,31 +22,31 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($reports as $report)
+        @foreach($articles as $article)
         <tr>
             <td>
-                {{$report->title}}
+                {{$article->title}}
             </td>
             <td class="text-capitalize">
-                {{$report->author}}
+                {{$article->Author->name}}
             </td>
             <td>
                 {{-- {{$blog->created_at}} --}}
-                {{date('d M Y / H:i', strtotime($report->created_at))}}
+                {{date('d M Y / H:i', strtotime($article->created_at))}}
             </td>
             <td>
-                {{$report->status == 1 ? 'Active': 'Inactive'}}
+                {{$article->status == 1 ? 'Active': 'Inactive'}}
             </td>
 
             <td>
                 <a class="btn btn-warning px-2 text-white" data-toggle="tooltip" title="Edit"
-                    href="/admin/reports/{{$report->mnr_rid}}/edit">
+                    href="/admin/article/{{$article->article_rid}}/edit">
                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                 </a>
-                {{-- <button class="btn btn-warning px-2 text-white" data-toggle="tooltip" title="Delete"
-                    onclick="deletePost({{$report->article_rid}})">
-                <i class="fa fa-trash" aria-hidden="true"></i>
-                </button> --}}
+                <button class="btn btn-warning px-2 text-white" data-toggle="tooltip" title="Delete"
+                    onclick="deletePost({{$article->article_rid}})">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </button>
             </td>
         </tr>
         @endforeach

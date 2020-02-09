@@ -322,6 +322,12 @@ $colorSecondary: #204065;
   }
 }
 
+.bio {
+  p {
+    margin-bottom: 0 !important;
+  }
+}
+
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 800px) {
   .img-grid-column {

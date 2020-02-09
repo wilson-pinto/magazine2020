@@ -27,6 +27,8 @@ Route::get('article/{catName}/{articleRid}', 'client\PostController@getArticle')
 
 Route::get('gallery/{galType}/{galTypeId}', 'client\GalleryController@index');
 
+Route::get('reports/{reportTitle}/{reportRid}', 'client\ReportsController@index');
+
 Route::get('/reports', function () {
     return view('client.pages.reports');
 });
@@ -49,4 +51,10 @@ Route::group(['namespace' => 'backend', 'prefix' => 'admin', 'as' => 'admin.', '
 
     Route::resource('gallery', 'GalleryController');
     Route::get('gallery-showAll', 'GalleryController@showAll');
+
+    Route::resource('reports', 'ReportsController');
+    Route::get('reports-showAll', 'ReportsController@showAll');
+
+    Route::resource('gallery', 'ReportsController');
+    Route::get('gallery-showAll', 'ReportsController@showAll');
 });
