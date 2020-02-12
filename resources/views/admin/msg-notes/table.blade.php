@@ -1,4 +1,4 @@
-@if(count($articles) == 0)
+@if(count($reports) == 0)
 <h5 class="ml-4">No Results</h5>
 @else
 <table class="table table-hover">
@@ -9,6 +9,9 @@
             </th>
             <th>
                 Author
+            </th>
+            <th>
+                Profile
             </th>
             <th>
                 Date
@@ -22,31 +25,34 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($articles as $article)
+        @foreach($reports as $report)
         <tr>
             <td>
-                {{$article->title}}
+                {{$report->title}}
             </td>
             <td class="text-capitalize">
-                {{$article->Author->name}}
+                {{$report->author}}
+            </td>
+            <td>
+                <img src="{{'/img/msg-report/'. $report->img_url }}" class="profile-img" height="50px" width="50px">
             </td>
             <td>
                 {{-- {{$blog->created_at}} --}}
-                {{date('d M Y / H:i', strtotime($article->created_at))}}
+                {{date('d M Y / H:i', strtotime($report->created_at))}}
             </td>
             <td>
-                {{$article->status == 1 ? 'Active': 'Inactive'}}
+                {{$report->status == 1 ? 'Active': 'Inactive'}}
             </td>
 
             <td>
                 <a class="btn btn-warning px-2 text-white" data-toggle="tooltip" title="Edit"
-                    href="/admin/article/{{$article->article_rid}}/edit">
+                    href="/admin/msg-notes/{{$report->mnr_rid}}/edit">
                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                 </a>
-                <button class="btn btn-warning px-2 text-white" data-toggle="tooltip" title="Delete"
-                    onclick="deletePost({{$article->article_rid}})">
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                </button>
+                {{-- <button class="btn btn-warning px-2 text-white" data-toggle="tooltip" title="Delete"
+                    onclick="deletePost({{$report->article_rid}})">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+                </button> --}}
             </td>
         </tr>
         @endforeach

@@ -14,8 +14,10 @@ $reports =  LandingController::getReports();
     </div> --}}
     <div class="row w-100 mx-0">
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-lg w-100">
-            <a class="navbar-brand py-3" href="/">
-                <h3 class="font-valentine pl-3">Abhivyakta</h3>
+            <a class="navbar-brand py-3 d-flex justify-content-center text-white flex-column align-items-center"
+                href="/">
+                <h3 class="font-valentine text-dark">Abhivyakta</h3>
+                <p class="font-alata font-sm text-dark mb-0">Karnataka (Govt.) Polytecnic, Mangaluru</p>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

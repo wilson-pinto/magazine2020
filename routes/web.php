@@ -55,6 +55,6 @@ Route::group(['namespace' => 'backend', 'prefix' => 'admin', 'as' => 'admin.', '
     Route::resource('reports', 'ReportsController');
     Route::get('reports-showAll', 'ReportsController@showAll');
 
-    Route::resource('gallery', 'ReportsController');
-    Route::get('gallery-showAll', 'ReportsController@showAll');
+    Route::resource('msg-notes', 'MsgNoteController');
+    Route::get('msg-notes-showAll', 'MsgNoteController@showAll');
 });

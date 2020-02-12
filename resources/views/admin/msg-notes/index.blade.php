@@ -5,10 +5,10 @@
     <div class="content-body bg-white shadow">
         <div class="p-3 row align-items-center">
             <div class="col-3 ml-3">
-                <h4 class="font-primary-regular text-primary text-uppercase">Article</h4>
+                <h4 class="font-primary-regular text-primary text-uppercase">Message/Notes</h4>
             </div>
             <div class="col">
-                <a href="{{ URL::to('/admin/article/create') }}" class="mr-3 btn-primary float-right shadow"
+                <a href="{{ URL::to('/admin/msg-notes/create') }}" class="mr-3 btn-primary float-right shadow"
                     data-toggle="tooltip" title="Create Author">
                     <i class="fa fa-plus" aria-hidden="true"></i>
                 </a>
@@ -27,7 +27,7 @@
     $(document).ready(function () {
         $.ajax({
             type: "GET",
-            url: "/admin/article-showAll",
+            url: "/admin/msg-notes-showAll",
             success: function (data) {
                 console.log(data);
                 $("#table-list").html(data);
