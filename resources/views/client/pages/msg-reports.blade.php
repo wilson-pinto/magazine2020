@@ -29,18 +29,19 @@
     <div class="col-md-3">
         <div class="row bg-white shadow-lg mx-0 px-3 py-5">
             <div class="col">
-                <h3 class="mb-4 text-uppercase head-border pb-3">Reports</h3>
+                {{-- <h3 class="mb-4 text-uppercase head-border pb-3">Reports</h3>
                 <ul class="cats ml-0 pl-0 list-unstyled">
                     @foreach ($reports as $hr)
                     <li class="mt-1">
-                        <a href="/reports/{{$hr->title}}/{{$hr->mnr_rid}}" class="mb-0 mt-2 pb-3 font-alata ml-1 color-secondary text-decoration-none
-                    {{$hr->mnr_rid == $report->mnr_rid ? 'active': ''}} ">
-                            {{$hr->title}}<br>
-                        </a>
-                    </li>
-                    @endforeach
+                        <a href="/reports/{{$hr->title}}/{{$hr->mnr_rid}}" class="mb-0 mt-2 pb-3 font-alata ml-1
+                color-secondary text-decoration-none
+                {{$hr->mnr_rid == $report->mnr_rid ? 'active': ''}} ">
+                {{$hr->title}}<br>
+                </a>
+                </li>
+                @endforeach
                 </ul>
-                <hr class="border-btm mt-5">
+                <hr class="border-btm mt-5"> --}}
                 <h3 class="mb-3 mt-5 text-uppercase head-border pb-2">Review</h3>
                 <p class="col--md-10 ml-2 font-alata">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse obcaecati nisi cumque inventore.

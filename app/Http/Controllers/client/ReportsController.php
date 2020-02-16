@@ -11,7 +11,8 @@ class ReportsController extends Controller
     public function index($reportTitle, $reportRid)
     {
         $report = MsgNoteReport::find($reportRid);
-        $reports = MsgNoteReport::where('status', 1)
+        $reports = MsgNoteReport::where('type', 1)
+            ->where('status', 1)
             ->get();
         return view('client.pages.reports', compact('report', 'reports'));
     }

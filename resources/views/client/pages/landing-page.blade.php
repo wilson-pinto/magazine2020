@@ -1,9 +1,15 @@
 @extends('client.layouts.app')
 
 @section('content')
-{{-- <div class="row banner-main mx-0 d-flex align-items-center justify-content-center">
+<div class="row banner-main mx-0 d-flex flex-column align-items-center justify-content-center">
     <h1 class="text-capitalize text-center font-weight-bold">Karnataka (govt.) polytecnic, <br> mangaluru</h1>
-</div> --}}
+    <div class="scroll-down">
+        <div class="chevron"></div>
+        <div class="chevron"></div>
+        <div class="chevron"></div>
+        <a href="#" id="scrollDown" class="text">Scroll Down</a>
+    </div>
+</div>
 <div class="row justify-content-center mx-0 w-100" id="abhivyakta">
     <div id="caroHome" class="carousel slide w-100" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -131,5 +137,11 @@
 @section('scripts')
 
 {{-- <script src="{{asset('js/admin/validation.js')}}"></script> --}}
+
+<script>
+    $("#scrollDown").click(function() {
+       $("html, body").animate({ scrollTop: $('#abhivyakta').offset().top }, 2000); 
+   });
+</script>
 
 @endsection

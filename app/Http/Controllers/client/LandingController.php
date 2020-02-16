@@ -30,7 +30,8 @@ class LandingController extends Controller
 
     public static function getReports()
     {
-        return MsgNoteReport::where('status', 1)
+        return MsgNoteReport::where('type', 1)
+            ->where('status', 1)
             ->get();
     }
 }

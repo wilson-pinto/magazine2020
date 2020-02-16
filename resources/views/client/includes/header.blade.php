@@ -68,8 +68,9 @@ $reports =  LandingController::getReports();
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle {{request()->is('gallery/*') ? 'active' : '' }}" href="#"
+                            id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
                             Gallery
                         </a>
                         <div class="dropdown-menu border-0 bg-primary" aria-labelledby="navbarDropdown">
@@ -81,8 +82,9 @@ $reports =  LandingController::getReports();
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle {{request()->is('reports/*') ? 'active' : '' }}" href="#"
+                            id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
                             Reports
                         </a>
                         <div class="dropdown-menu border-0 bg-dark" aria-labelledby="navbarDropdown">

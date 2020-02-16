@@ -372,6 +372,124 @@
   margin-bottom: 0 !important;
 }
 
+.scroll-down {
+  margin-top: 40px !important;
+  position: relative;
+  width: 100px;
+  height: 24px;
+}
+
+.scroll-down .chevron {
+  position: absolute;
+  width: 28px;
+  height: 8px;
+  opacity: 0;
+  left: 34%;
+  -webkit-transform: scale3d(0.5, 0.5, 0.5);
+          transform: scale3d(0.5, 0.5, 0.5);
+  -webkit-animation: move 3s ease-out infinite;
+          animation: move 3s ease-out infinite;
+}
+
+.scroll-down .chevron:first-child {
+  -webkit-animation: move 3s ease-out 1s infinite;
+          animation: move 3s ease-out 1s infinite;
+}
+
+.scroll-down .chevron:nth-child(2) {
+  -webkit-animation: move 3s ease-out 2s infinite;
+          animation: move 3s ease-out 2s infinite;
+}
+
+.scroll-down .chevron:before, .scroll-down .chevron:after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 51%;
+  background: #fff;
+}
+
+.scroll-down .chevron:before {
+  left: 0;
+  -webkit-transform: skew(0deg, 30deg);
+          transform: skew(0deg, 30deg);
+}
+
+.scroll-down .chevron:after {
+  right: 0;
+  width: 50%;
+  -webkit-transform: skew(0deg, -30deg);
+          transform: skew(0deg, -30deg);
+}
+
+.scroll-down .text {
+  display: block;
+  margin-top: 75px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff !important;
+  text-transform: uppercase;
+  font-family: "Alata", sans-serif;
+  text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.47);
+}
+
+@-webkit-keyframes move {
+  25% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 1;
+    -webkit-transform: translateY(30px);
+            transform: translateY(30px);
+  }
+  67% {
+    opacity: 1;
+    -webkit-transform: translateY(40px);
+            transform: translateY(40px);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
+            transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
+  }
+}
+
+@keyframes move {
+  25% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 1;
+    -webkit-transform: translateY(30px);
+            transform: translateY(30px);
+  }
+  67% {
+    opacity: 1;
+    -webkit-transform: translateY(40px);
+            transform: translateY(40px);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
+            transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
+  }
+}
+
+@-webkit-keyframes pulse {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  to {
+    opacity: 1;
+  }
+}
+
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 800px) {
   .img-grid-column {
