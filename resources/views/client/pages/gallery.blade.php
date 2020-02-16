@@ -65,7 +65,8 @@
             <p class="col--md-10 ml-2 font-alata">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse obcaecati nisi cumque inventore.
             </p>
-            <a href="/review" class="wp-btn-primary color-secondary text-decoration-none ml-2">Review</a>
+            <button href="#" class="wp-btn-primary color-secondary text-decoration-none ml-2" type="button"
+                data-toggle="modal" data-target="#bdReview">Review</button>
             <hr class="border-btm mt-5">
         </div>
     </div>

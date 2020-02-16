@@ -15,7 +15,7 @@
     <div class="col-md-8 pr-5">
         <div class="row bg-white shadow-lg mx-0 px-3 py-5">
             <div class="col">
-                <h2 class="pl-3 text-center color-primary">{{$article->title}}</h2>
+                <h2 class="pl-4 color-primary">{{$article->title}}</h2>
                 <div class="article-wys-wyg mt-5 px-5">
                     {!! $article->body !!}
                 </div>
@@ -40,7 +40,8 @@
                 <p class="col--md-10 ml-2 font-alata">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse obcaecati nisi cumque inventore.
                 </p>
-                <a href="/review" class="wp-btn-primary color-secondary text-decoration-none ml-2">Review</a>
+                <button href="#" class="wp-btn-primary color-secondary text-decoration-none ml-2" type="button"
+                    data-toggle="modal" data-target="#bdReview">Review</button>
                 <hr class="border-btm mt-5">
             </div>
         </div>

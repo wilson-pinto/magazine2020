@@ -19,6 +19,7 @@
                 @include('client.includes.footer')
             </div>
         </div>
+        @include('client.includes.review-modal')
         @include('client.includes.scripts')
 
     </body>

@@ -2,6 +2,9 @@
 $headerCats =  LandingController::getCats();
 $headerGal =  LandingController::getGalCats();
 $reports =  LandingController::getReports();
+$messages =  LandingController::getMessages();
+$pNote =  LandingController::getPrincipalsNote();
+$eNote =  LandingController::getEditorsNote();
 ?>
 
 <div class="col px-0 bg-secondary">
@@ -46,7 +49,11 @@ $reports =  LandingController::getReports();
                             Messeges
                         </a>
                         <div class="dropdown-menu border-0 bg-dark" aria-labelledby="navbarDropdown">
-
+                            @foreach ($messages as $m)
+                            <a class="dropdown-item" href="/message/{{$m->author}}/{{$m->mnr_rid}}/{{$m->type}}">
+                                {{$m->title}}
+                            </a>
+                            @endforeach
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -55,7 +62,12 @@ $reports =  LandingController::getReports();
                             Principals Note
                         </a>
                         <div class="dropdown-menu border-0 bg-dark" aria-labelledby="navbarDropdown">
-
+                            @foreach ($pNote as $pn)
+                            <a class="dropdown-item"
+                                href="/principals-note/{{$pn->author}}/{{$pn->mnr_rid}}/{{$pn->type}}">
+                                {{$pn->title}}
+                            </a>
+                            @endforeach
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -64,7 +76,12 @@ $reports =  LandingController::getReports();
                             Editors Note
                         </a>
                         <div class="dropdown-menu border-0 bg-dark" aria-labelledby="navbarDropdown">
-
+                            @foreach ($eNote as $en)
+                            <a class="dropdown-item"
+                                href="/editors-note/{{$en->author}}/{{$en->mnr_rid}}/{{$en->type}}">
+                                {{$en->title}}
+                            </a>
+                            @endforeach
                         </div>
                     </li>
                     <li class="nav-item dropdown">

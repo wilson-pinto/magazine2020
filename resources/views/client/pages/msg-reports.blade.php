@@ -3,25 +3,26 @@
 @section('content')
 <div class="row mx-0 banners justify-content-center banner-cont">
     <div class="d-flex flex-column justify-content-center">
-        <h1 class="pb-1 text-uppercase text-white">Reports</h1>
+        <h1 class="pb-1 text-uppercase text-white">{{$object->title}}</h1>
     </div>
 </div>
 <div class="row mx-0 justify-content-center cont-out mb-5">
     <div class="col-md-8 pr-5">
         <div class="row bg-white shadow-lg mx-0 px-3 py-5">
             <div class="col px-4">
-                <h2 class="pl-2 pb-2 color-primary">{{$report->title}}</h2>
+                <h2 class="pl-2 pb-2 color-primary">{{$object->title}}</h2>
                 <div class="d-flex align-items-center">
-                    {{-- <img src="/img/college-bg.jpg" class="profile profile-sm ml-2" alt=""> --}}
+                    <img src="{{$object->img_url == null ? '/img/no-img.png' : '/img/msg-report/'.$object->img_url}}"
+                        class="profile profile-sm ml-2" alt="">
                     <div class="pl-3">
-                        <h5 class="mb-0 pb-0">{{$report->author}}</h5>
+                        <h5 class="mb-0 pb-0">{{$object->author}}</h5>
                         <div class="pt-1 mb-0 font-sm bio">
-                            {!! $report->bio !!}
+                            {!! $object->bio !!}
                         </div>
                     </div>
                 </div>
                 <div class="article-wys-wyg mt-3 px-3">
-                    {!! $report->body !!}
+                    {!! $object->body !!}
                 </div>
             </div>
         </div>
@@ -42,11 +43,12 @@
                 @endforeach
                 </ul>
                 <hr class="border-btm mt-5"> --}}
-                <h3 class="mb-3 mt-5 text-uppercase head-border pb-2">Review</h3>
+                <h3 class="mb-3 text-uppercase head-border pb-2">Review</h3>
                 <p class="col--md-10 ml-2 font-alata">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse obcaecati nisi cumque inventore.
                 </p>
-                <a href="/review" class="wp-btn-primary color-secondary text-decoration-none ml-2">Review</a>
+                <button href="#" class="wp-btn-primary color-secondary text-decoration-none ml-2" type="button"
+                    data-toggle="modal" data-target="#bdReview">Review</button>
                 <hr class="border-btm mt-5">
             </div>
         </div>

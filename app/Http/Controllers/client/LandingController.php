@@ -34,4 +34,25 @@ class LandingController extends Controller
             ->where('status', 1)
             ->get();
     }
+
+    public static function getMessages()
+    {
+        return MsgNoteReport::where('type', 5)
+            ->where('status', 1)
+            ->get();
+    }
+
+    public static function getPrincipalsNote()
+    {
+        return MsgNoteReport::where('type', 6)
+            ->where('status', 1)
+            ->get();
+    }
+
+    public static function getEditorsNote()
+    {
+        return MsgNoteReport::where('type', 7)
+            ->where('status', 1)
+            ->get();
+    }
 }

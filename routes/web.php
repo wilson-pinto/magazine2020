@@ -29,6 +29,12 @@ Route::get('gallery/{galType}/{galTypeId}', 'client\GalleryController@index');
 
 Route::get('reports/{reportTitle}/{reportRid}', 'client\ReportsController@index');
 
+Route::get('message/{title}/{rid}/{type}', 'client\MsgNotesController@index');
+
+Route::get('principals-note/{title}/{rid}/{type}', 'client\MsgNotesController@index');
+
+Route::get('editors-note/{title}/{rid}/{type}', 'client\MsgNotesController@index');
+
 Route::get('/reports', function () {
     return view('client.pages.reports');
 });
