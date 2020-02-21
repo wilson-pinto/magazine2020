@@ -9,27 +9,28 @@
         <div class="row px-3 py-2">
             <h4 class="font-primary-medium text-uppercase text-primary">Edit</h4>
         </div>
-        <form method="post" enctype="multipart/form-data"
+        <form method="post" id="form" enctype="multipart/form-data"
             action="{{ route('admin.gallery.update',$gallery->gal_rid) }}">
             {{ method_field("PUT") }}
             @else
             <div class="row px-3 py-2">
                 <h4 class="font-primary-medium text-uppercase text-primary">Create</h4>
             </div>
-            <form method="post" enctype="multipart/form-data" action="{{ route('admin.gallery.store') }}">
+            <form method="post" id="form" enctype="multipart/form-data" action="{{ route('admin.gallery.store') }}">
                 @endif
                 {{ csrf_field() }}
 
                 <div class="form-group row px-3">
                     <label for="title">Title</label>
                     <input id="title" name="title"
-                        class="form-control rounded-0 @error('authorName') is-invalid @enderror"
-                        value="{{isset($gallery)?$gallery->desc : '' }}" required autofocus placeholder="Name">
+                        class="form-control  rounded-0 @error('authorName') is-invalid @enderror"
+                        value="{{isset($gallery)?$gallery->desc : '' }}" data-rule="required|min:4" autofocus
+                        placeholder="Name">
                     <div class="invalid-feedback"> </div>
                 </div>
                 <div class="form-group row px-3">
                     <label for="type">Type</label>
-                    <select class="form-control rounded-0" id="type" name="type">
+                    <select data-rule="select" class="form-control rounded-0" id="type" name="type">
                         @if(!isset($gallery))
                         <option value="-1"> --------Select Type--------- </option>
                         @endif
@@ -52,12 +53,10 @@
                 <div class="form-group row px-3 {{isset($gallery)?$gallery->type == 1? 'd-none' : '' : 'd-none'}}"
                     id="imgWrapper">
                     <label for="catName">Image</label>
-                    <div class="custom-file">
-                        <input id="oldGalImage" name="oldGalImage" type="hidden"
-                            value="{{isset($post)?$post->img_url : ''}}">
+                    <div class="custom-file form-group">
                         <input id="galImg" name="galImg" type="file"
                             class="custom-file-input rounded-0 @error('galImg') is-invalid @enderror"
-                            placeholder="Image">
+                            placeholder="Image" data-rule="mimes:png,jpg,jpeg|maxsize:500">
                         <label class="custom-file-label rounded-0"
                             for="customFile">{{isset($gallery)?$gallery->img_url : 'Choose file' }}</label>
                         <div class="invalid-feedback"> </div>
@@ -106,40 +105,28 @@
         }
         $('#vUrlWrapper').children('input').val('');$('#vUrlWrapper').children('input').val('');
         });
+</script>
+<script>
     $('.custom-file-input').on('change', function() {
-        //get the file name
+
+        validateField($(this));
+        if(!fieldIsValid)
+        return false;
         var fileName = $(this).val();
         var img = $(this).parent().siblings("img");
         var cleanFileName = fileName.replace('C:\\fakepath\\', "");
-
-        $(img).attr("src", '');
-        
-        $(this).next('.custom-file-label').html(cleanFileName);
-
-        var imageExt = this.files[0].type;
-
-        var imageSize = this.files[0].size / 1024;
-
-        if (imageExt != "image/png" && imageExt != "image/jpg" && imageExt != "image/jpeg") {
-            $(this).addClass("is-invalid");
-            $(this).siblings('div').text("File format not supported");
-            return false;
-        }
-
-        if (imageSize > 500) {
-            $(this).addClass("is-invalid");
-            $(this).siblings('div').text("Max file size is 500kb");
-            return false;
-        }
-
-        $(this).removeClass("is-invalid");
-
         var reader = new FileReader();
         reader.onload = function(e) {
             $(img).attr("src", e.target.result);
         };
         reader.readAsDataURL(this.files[0]);
     })
+</script>
+<script>
+    $('#submit').click(function () {
+        validateAll($('#form'));
+        return formIsValid;
+        });
 </script>
 
 @endsection

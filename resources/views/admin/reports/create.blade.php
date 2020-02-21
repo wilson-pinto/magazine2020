@@ -9,26 +9,28 @@
         <div class="row px-3 py-2">
             <h4 class="font-primary-medium text-uppercase text-primary">Edit</h4>
         </div>
-        <form method="post" enctype="multipart/form-data" action="{{ route('admin.reports.update',$report->mnr_rid) }}">
+        <form id="form" method="post" enctype="multipart/form-data"
+            action="{{ route('admin.reports.update',$report->mnr_rid) }}">
             {{ method_field("PUT") }}
             @else
             <div class="row px-3 py-2">
                 <h4 class="font-primary-medium text-uppercase text-primary">Create</h4>
             </div>
-            <form method="post" enctype="multipart/form-data" action="{{ route('admin.reports.store') }}">
+            <form id="form" method="post" enctype="multipart/form-data" action="{{ route('admin.reports.store') }}">
                 @endif
                 {{ csrf_field() }}
                 <div class="form-group row px-3">
                     <label for="title">Title</label>
-                    <input id="title" name="title" class="form-control rounded-0 @error('title') is-invalid @enderror"
-                        value="{{isset($report)?$report->title : '' }}" required autofocus placeholder="Title">
+                    <input data-rule="required|min:4" id="title" name="title"
+                        class="form-control rounded-0 @error('title') is-invalid @enderror"
+                        value="{{isset($report)?$report->title : '' }}" autofocus placeholder="Title">
                     <div class="invalid-feedback"> </div>
                 </div>
                 <div class="form-group row px-3">
                     <label for="author">Author</label>
-                    <input id="author" name="author"
+                    <input data-rule="required|min:4" id="author" name="author"
                         class="form-control rounded-0 @error('author') is-invalid @enderror"
-                        value="{{isset($report)?$report->author : '' }}" required autofocus placeholder="Author Name">
+                        value="{{isset($report)?$report->author : '' }}" autofocus placeholder="Author Name">
                     <div class="invalid-feedback"> </div>
                 </div>
                 <div class="form-group row px-3">
@@ -47,10 +49,9 @@
                 </div>
                 <div class="form-group row px-3">
                     <label for="dOrder">Display Order</label>
-                    <input id="dOrder" name="dOrder"
+                    <input data-rule="required|integer" id="dOrder" name="dOrder"
                         class="form-control rounded-0 @error('dOrder') is-invalid @enderror"
-                        value="{{isset($report)?$report->display_order : '' }}" required autofocus
-                        placeholder="Display Order">
+                        value="{{isset($report)?$report->display_order : '' }}" autofocus placeholder="Display Order">
                     <div class="invalid-feedback"> </div>
                 </div>
                 <div class="form-group row mt-4">
@@ -87,6 +88,22 @@
     CKEDITOR.replace( 'bio' );
 </script>
 
-<script src="{{asset('js/admin/validation.js')}}"></script>
+<script>
+    $('.form-control').on('keyup', function () {
+$(this).removeClass("is-invalid");
+});
+
+$('.form-control').on('change', function () {
+$(this).removeClass("is-invalid");
+});
+</script>
+
+<script>
+    $('#submit').click(function () {
+        validateAll($('#form'));
+        return formIsValid;
+        });
+</script>
+
 
 @endsection

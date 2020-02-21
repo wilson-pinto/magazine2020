@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\DataDictionary;
 use App\Models\MsgNoteReport;
+use App\Models\Review;
 use Illuminate\Http\Request;
 
 class LandingController extends Controller
@@ -54,5 +55,16 @@ class LandingController extends Controller
         return MsgNoteReport::where('type', 7)
             ->where('status', 1)
             ->get();
+    }
+
+    public function storeReview(Request $request)
+    {
+        $review = new Review();
+        $review->name = $request->input('name');
+        $review->email = $request->input('email');
+        $review->message = $request->input('message');
+        $review->save();
+
+        return redirect()->back()->with('message', 'Thanks For Submitting the Review');
     }
 }

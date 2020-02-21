@@ -117,6 +117,7 @@ class ArticleController extends Controller
     {
         $articles = Article::with('author')
             ->with('category')
+            ->orderby('article_rid', 'desc')
             ->get();
 
         return view('admin.article.table', compact('articles'));

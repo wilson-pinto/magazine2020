@@ -9,35 +9,35 @@
         <div class="row px-3 py-2">
             <h4 class="font-primary-medium text-uppercase text-primary">Edit</h4>
         </div>
-        <form method="post" enctype="multipart/form-data"
+        <form id="form" method="post" enctype="multipart/form-data"
             action="{{ route('admin.msg-notes.update',$report->mnr_rid) }}">
             {{ method_field("PUT") }}
             @else
             <div class="row px-3 py-2">
                 <h4 class="font-primary-medium text-uppercase text-primary">Create</h4>
             </div>
-            <form method="post" enctype="multipart/form-data" action="{{ route('admin.msg-notes.store') }}">
+            <form id="form" method="post" enctype="multipart/form-data" action="{{ route('admin.msg-notes.store') }}">
                 @endif
                 {{ csrf_field() }}
                 <div class="form-group row px-3">
                     <label for="title">Title</label>
-                    <input id="title" name="title" class="form-control rounded-0 @error('title') is-invalid @enderror"
-                        value="{{isset($report)?$report->title : '' }}" required autofocus placeholder="Title">
+                    <input id="title" data-rule="required|min:4" name="title"
+                        class="form-control rounded-0 @error('title') is-invalid @enderror"
+                        value="{{isset($report)?$report->title : '' }}" autofocus placeholder="Title">
                     <div class="invalid-feedback"> </div>
                 </div>
                 <div class="form-group row px-3">
                     <label for="author">Messege/Note From</label>
-                    <input id="author" name="author"
+                    <input id="author" data-rule="required|min:4" name="author"
                         class="form-control rounded-0 @error('author') is-invalid @enderror"
-                        value="{{isset($report)?$report->author : '' }}" required autofocus placeholder="Name">
+                        value="{{isset($report)?$report->author : '' }}" autofocus placeholder="Name">
                     <div class="invalid-feedback"> </div>
                 </div>
                 <div class="form-group row px-3">
                     <label for="catName">Image</label>
-                    <div class="custom-file">
-                        <input id="postImgrOld" name="postImgOld" type="hidden"
-                            value="{{isset($report)?$report->img_url : ''}}">
+                    <div class="custom-file form-group">
                         <input id="postImg" name="postImg" type="file"
+                            data-rule="{{isset($report)? '' : 'required|'}}mimes:png,jpg,jpeg|maxsize:500"
                             class="custom-file-input rounded-0 @error('postImg') is-invalid @enderror"
                             placeholder="Image">
                         <label class="custom-file-label rounded-0"
@@ -56,7 +56,7 @@
                 </div>
                 <div class="form-group row px-3">
                     <label for="type">Select Type</label>
-                    <select class="form-control rounded-0" id="type" name="type">
+                    <select data-rule="select" class="form-control rounded-0" id="type" name="type">
                         @if(!isset($report))
                         <option value="-1"> -------- Select Type --------- </option>
                         @endif
@@ -80,7 +80,7 @@
                     <label for="dOrder">Display Order</label>
                     <input id="dOrder" name="dOrder"
                         class="form-control rounded-0 @error('dOrder') is-invalid @enderror"
-                        value="{{isset($report)?$report->display_order : '' }}" required autofocus
+                        data-rule="required|integer" value="{{isset($report)?$report->display_order : '' }}" autofocus
                         placeholder="Display Order">
                     <div class="invalid-feedback"> </div>
                 </div>
@@ -112,34 +112,23 @@
 
 @section('scripts')
 <script>
+    $('.form-control').on('keyup', function () {
+$(this).removeClass("is-invalid");
+});
+
+$('.form-control').on('change', function () {
+$(this).removeClass("is-invalid");
+});
+</script>
+<script>
     $('.custom-file-input').on('change', function() {
-        //get the file name
+
+        validateField($(this));
+        if(!fieldIsValid)
+        return false;
         var fileName = $(this).val();
         var img = $(this).parent().siblings("img");
         var cleanFileName = fileName.replace('C:\\fakepath\\', "");
-
-        $(img).attr("src", '');
-        
-        $(this).next('.custom-file-label').html(cleanFileName);
-
-        var imageExt = this.files[0].type;
-
-        var imageSize = this.files[0].size / 1024;
-
-        if (imageExt != "image/png" && imageExt != "image/jpg" && imageExt != "image/jpeg") {
-            $(this).addClass("is-invalid");
-            $(this).siblings('div').text("File format not supported");
-            return false;
-        }
-
-        if (imageSize > 500) {
-            $(this).addClass("is-invalid");
-            $(this).siblings('div').text("Max file size is 500kb");
-            return false;
-        }
-
-        $(this).removeClass("is-invalid");
-
         var reader = new FileReader();
         reader.onload = function(e) {
             $(img).attr("src", e.target.result);
@@ -147,12 +136,16 @@
         reader.readAsDataURL(this.files[0]);
     })
 </script>
+<script>
+    $('#submit').click(function () {
+        validateAll($('#form'));
+        return formIsValid;
+        });
+</script>
 <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
 <script>
     CKEDITOR.replace( 'editor' );
     CKEDITOR.replace( 'bio' );
 </script>
-
-<script src="{{asset('js/admin/validation.js')}}"></script>
 
 @endsection

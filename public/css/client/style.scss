@@ -312,7 +312,6 @@ $colorSecondary: #204065;
 .article-wys-wyg {
   img {
     display: block;
-    margin: auto;
     width: 60%;
     transition: all 0.5s;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -416,6 +415,49 @@ $colorSecondary: #204065;
 button:focus {
   outline: 0px dotted;
   outline: 0px auto -webkit-focus-ring-color;
+}
+
+.snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: $colorPrimary;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  right: 40px;
+  top: 10%;
+  font-size: 17px;
+}
+
+.snackbar.show {
+  visibility: visible;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@keyframes fadein {
+  from {
+    right: 0;
+    opacity: 0;
+  }
+  to {
+    right: 40px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    right: 40px;
+    opacity: 1;
+  }
+  to {
+    right: 0;
+    opacity: 0;
+  }
 }
 
 /* Responsive layout - makes a two column-layout instead of four columns */

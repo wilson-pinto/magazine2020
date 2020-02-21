@@ -153,6 +153,7 @@
 .content-body {
   border-radius: 10px;
   margin-top: -10vh;
+  margin-bottom: 20px !important;
 }
 
 .footer {

@@ -50,18 +50,20 @@ class AuthorController extends Controller
             return back()->withErrors($validator->errors());
             // return Redirect::back()->withInput(Input::all());
         }
-
-        try {
-            $authorImage =  time() . '_' .  $request->authorImage->getClientOriginalName();
-            request()->authorImage->move(public_path('img/author/'), $authorImage);
-        } catch (Exception $e) {
-            // echo 'Message: ' . $e->getMessage();
-            return redirect()->back()->withErrors($e->getMessage())->withInput();
+        if ($request->hasFile('authorImage')) {
+            try {
+                $authorImage =  time() . '_' .  $request->authorImage->getClientOriginalName();
+                request()->authorImage->move(public_path('img/author/'), $authorImage);
+            } catch (Exception $e) {
+                // echo 'Message: ' . $e->getMessage();
+                return redirect()->back()->withErrors($e->getMessage())->withInput();
+            }
         }
+
 
         $author = new Author();
         $author->name = $request->input('authorName');
-        $author->profile_img = $authorImage;
+        $author->profile_img = isset($authorImage) ? $authorImage : null;
         $author->branch_rid = $request->input('branch');
         // $author->year = $request->input('year');
         // $author->type = $request->input('type');
@@ -132,7 +134,7 @@ class AuthorController extends Controller
 
     public function showAll()
     {
-        $authors = Author::with('branch')->get();
+        $authors = Author::with('branch')->orderby('author_rid', 'desc')->get();
 
         return view('admin.author.table', compact('authors'));
     }

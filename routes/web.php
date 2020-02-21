@@ -35,10 +35,7 @@ Route::get('principals-note/{title}/{rid}/{type}', 'client\MsgNotesController@in
 
 Route::get('editors-note/{title}/{rid}/{type}', 'client\MsgNotesController@index');
 
-Route::get('/reports', function () {
-    return view('client.pages.reports');
-});
-
+Route::post('submit-review', 'client\LandingController@storeReview');
 
 
 Route::group(['namespace' => 'backend', 'prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], function () {

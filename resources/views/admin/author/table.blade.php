@@ -25,7 +25,7 @@
         @foreach($authors as $author)
         <tr>
             <td>
-                <img src="{{isset($author) ? '/img/author/'. $author->profile_img : '/img/no-img.png'}}"
+                <img src="{{isset($author->profile_img) ? '/img/author/'. $author->profile_img : '/img/no-img.png'}}"
                     class="profile-img" height="50px" width="50px">
             </td>
             <td>

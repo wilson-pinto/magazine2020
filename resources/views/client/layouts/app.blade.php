@@ -19,9 +19,9 @@
                 @include('client.includes.footer')
             </div>
         </div>
+        <div id="snackbar" class="snackbar">Messege here.....</div>
         @include('client.includes.review-modal')
         @include('client.includes.scripts')
-
     </body>
 
 </html>

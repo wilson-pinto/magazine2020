@@ -9,27 +9,27 @@
         <div class="row px-3 py-2">
             <h4 class="font-primary-medium text-uppercase text-primary">Edit Article</h4>
         </div>
-        <form method="post" enctype="multipart/form-data"
+        <form id="form" method="post" enctype="multipart/form-data"
             action="{{ route('admin.article.update',$article->article_rid) }}">
             {{ method_field("PUT") }}
             @else
             <div class="row px-3 py-2">
                 <h4 class="font-primary-medium text-uppercase text-primary">Create Article</h4>
             </div>
-            <form method="post" enctype="multipart/form-data" action="{{ route('admin.article.store') }}">
+            <form id="form" method="post" enctype="multipart/form-data" action="{{ route('admin.article.store') }}">
                 @endif
                 {{ csrf_field() }}
 
                 <div class="form-group row px-3">
                     <label for="title">Title</label>
-                    <input id="title" name="title"
+                    <input data-rule="required|min:4" id="title" name="title"
                         class="form-control rounded-0 @error('authorName') is-invalid @enderror"
-                        value="{{isset($article)?$article->title : '' }}" required autofocus placeholder="Name">
+                        value="{{isset($article)?$article->title : '' }}" autofocus placeholder="Name">
                     <div class="invalid-feedback"> </div>
                 </div>
                 <div class="form-group row px-3">
                     <label for="authorName">Author</label>
-                    <select class="form-control rounded-0" id="author" name="author">
+                    <select data-rule="select" class="form-control rounded-0" id="author" name="author">
                         @if(!isset($article))
                         <option value="-1"> --------Select Author--------- </option>
                         @endif
@@ -44,7 +44,7 @@
                 </div>
                 <div class="form-group row px-3">
                     <label for="authorName">Category</label>
-                    <select class="form-control rounded-0" id="category" name="category">
+                    <select data-rule="select" class="form-control rounded-0" id="category" name="category">
                         @if(!isset($article))
                         <option value="-1"> --------Select Category--------- </option>
                         @endif
@@ -94,48 +94,26 @@
 @section('scripts')
 
 
-<script>
-    $('.custom-file-input').on('change', function() {
-        //get the file name
-        var fileName = $(this).val();
-        var img = $(this).parent().siblings("img");
-        var cleanFileName = fileName.replace('C:\\fakepath\\', "");
-
-        $(img).attr("src", '');
-        
-        $(this).next('.custom-file-label').html(cleanFileName);
-
-        var imageExt = this.files[0].type;
-
-        var imageSize = this.files[0].size / 1024;
-
-        if (imageExt != "image/png" && imageExt != "image/jpg" && imageExt != "image/jpeg") {
-            $(this).addClass("is-invalid");
-            $(this).siblings('div').text("File format not supported");
-            return false;
-        }
-
-        if (imageSize > 500) {
-            $(this).addClass("is-invalid");
-            $(this).siblings('div').text("Max file size is 500kb");
-            return false;
-        }
-
-        $(this).removeClass("is-invalid");
-
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            $(img).attr("src", e.target.result);
-        };
-        reader.readAsDataURL(this.files[0]);
-    })
-</script>
-
 <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
 <script>
     CKEDITOR.replace( 'editor' );
 </script>
 
-<script src="{{asset('js/admin/validation.js')}}"></script>
+<script>
+    $('.form-control').on('keyup', function () {
+$(this).removeClass("is-invalid");
+});
+
+$('.form-control').on('change', function () {
+$(this).removeClass("is-invalid");
+});
+</script>
+
+<script>
+    $('#submit').click(function () {
+        validateAll($('#form'));
+        return formIsValid;
+        });
+</script>
 
 @endsection

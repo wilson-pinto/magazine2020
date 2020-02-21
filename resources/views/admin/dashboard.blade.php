@@ -14,11 +14,47 @@
                     <canvas id="myDoughnut"></canvas>
                </div>
           </div>
-          {{-- <h2 class="text-primary text-uppercase text-center py-5">Coming Soon.....</h2>
-          <div class="progress">
-               <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar"
-                    aria-valuenow="25%" aria-valuemin="0" aria-valuemax="100" style="width: 25%"></div>
-          </div> --}}
+          <hr class="border-bottom border-secondary mx-1 mt-5">
+
+          @if(count($reviews) > 0)
+          <div class="row px-3 py-2 mt-4">
+               <h4 class="font-primary-medium text-uppercase text-primary">Reviews</h4>
+          </div>
+          <table class="table table-hover">
+               <thead>
+                    <tr>
+                         <th>
+                              Name
+                         </th>
+                         <th>
+                              Email
+                         </th>
+                         <th>
+                              Message
+                         </th>
+                         <th>Date</th>
+                    </tr>
+               </thead>
+               <tbody>
+                    @foreach($reviews as $rv)
+                    <tr>
+                         <td>
+                              <p>{{$rv->name}}</p>
+                         </td>
+                         <td>
+                              {{$rv->email}}
+                         </td>
+                         <td>
+                              {{$rv->message}}
+                         </td>
+                         <td>
+                              {{date('d M Y / H:i', strtotime($rv->created_at))}}
+                         </td>
+                    </tr>
+                    @endforeach
+               </tbody>
+          </table>
+          @endif
      </div>
 </div>
 
