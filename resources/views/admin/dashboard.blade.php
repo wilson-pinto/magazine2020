@@ -15,46 +15,6 @@
                </div>
           </div>
           <hr class="border-bottom border-secondary mx-1 mt-5">
-
-          @if(count($reviews) > 0)
-          <div class="row px-3 py-2 mt-4">
-               <h4 class="font-primary-medium text-uppercase text-primary">Reviews</h4>
-          </div>
-          <table class="table table-hover">
-               <thead>
-                    <tr>
-                         <th>
-                              Name
-                         </th>
-                         <th>
-                              Email
-                         </th>
-                         <th>
-                              Message
-                         </th>
-                         <th>Date</th>
-                    </tr>
-               </thead>
-               <tbody>
-                    @foreach($reviews as $rv)
-                    <tr>
-                         <td>
-                              <p>{{$rv->name}}</p>
-                         </td>
-                         <td>
-                              {{$rv->email}}
-                         </td>
-                         <td>
-                              {{$rv->message}}
-                         </td>
-                         <td>
-                              {{date('d M Y / H:i', strtotime($rv->created_at))}}
-                         </td>
-                    </tr>
-                    @endforeach
-               </tbody>
-          </table>
-          @endif
      </div>
 </div>
 
