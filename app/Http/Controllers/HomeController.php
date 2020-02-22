@@ -49,7 +49,7 @@ class HomeController extends Controller
 
         $data = $data . '],"backgroundColor": ["rgb(0, 63, 92)", "rgb(88, 80, 141)","rgb(188, 80, 144)","rgb(255, 99, 97)","rgb(255, 166, 0)"]}]}';
 
-        $reviews = Review::all();
-        return view('admin.dashboard', compact('data', 'reviews'));
+//         $reviews = Review::all();
+        return view('admin.dashboard', compact('data'));
     }
 }
